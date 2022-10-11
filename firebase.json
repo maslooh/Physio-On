@@ -1,0 +1,9 @@
+{
+  "hosting": {
+    "public": "dist/physio-on",
+    "rewrites": [{
+      "source": "**",
+      "destination": "/index.html"
+    }]
+  }
+}
