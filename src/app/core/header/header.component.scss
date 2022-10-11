@@ -1,0 +1,46 @@
+.navbar {
+  &-brand {
+    img {
+      width: 200px;
+    }
+  }
+
+  &-dark {
+    background-color: var(--main-intro-color) !important;
+  }
+
+  .offcanvas {
+    background-color: var(--main-intro-color) !important;
+    border-right: none !important ;
+  }
+
+  .navbar-toggler {
+    border: none !important;
+    &:focus {
+      box-shadow: none !important;
+    }
+  }
+
+  &-transparent {
+    background-color: transparent !important;
+    .navbar-brand,
+    .navbar-toggler {
+      color: var(--main-intro-color) !important;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .offcanvas,
+    &-transparent {
+      background-color: transparent !important;
+    }
+    &-transparent {
+      a {
+        color: var(--link-color) !important;
+      }
+      .active {
+        color: var(--active-link-color) !important;
+      }
+    }
+  }
+}

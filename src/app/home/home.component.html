@@ -1,0 +1,64 @@
+<div class="home">
+  <div class="card intro text-bg-dark">
+    <div class="card-img"></div>
+    <div class="card-img-overlay vertical-center">
+      <img
+        class="card-title-logo"
+        src="assets/logo 1 copy.PNG"
+        alt="Physio-on"
+      />
+      <h3 class="card-text">Get started on recovering!</h3>
+    </div>
+  </div>
+  <div class="card about">
+    <div class="row g-0">
+      <div class="col-md-5 md">
+        <div class="about-img img-fluid"></div>
+      </div>
+      <div class="col-md-7">
+        <div class="card-body">
+          <h1 class="card-title my-4">ABOUT US</h1>
+          <p class="card-text">
+            This is a wider card with supporting text below as a natural lead-in
+            to additional content. This content is a little bit longer Lorem
+            quis quaerat est similique? Illo, quas! Lorem ipsum dolor, sit amet
+            consectetur adipisicing elit. Consequatur expedita fugit numquam
+            quaerat unde dolorum magni obcaecati, sunt mollitia, excepturi in
+            alias vitae explicabo voluptates tempora beatae nemo distinctio vel.
+          </p>
+          <p class="card-text">
+            This is a wider card with supporting text below as a natural lead-in
+            to additional content. This content is a little bit longer Lorem
+            quis quaerat est similique? Illo, quas! Lorem ipsum dolor, sit amet
+            consectetur adipisicing elit. Consequatur expedita fugit numquam
+            quaerat unde dolorum magni obcaecati, sunt mollitia, excepturi in
+            alias vitae explicabo voluptates tempora beatae nemo distinctio vel.
+          </p>
+          <p class="card-text">
+            This is a wider card with supporting text below as a natural lead-in
+            to additional content. This content is a little bit longer Lorem
+            quis quaerat est similique? Illo, quas! Lorem ipsum dolor, sit amet
+            consectetur adipisicing elit. Consequatur expedita fugit numquam
+            quaerat unde dolorum magni obcaecati, sunt mollitia, excepturi in
+            alias vitae explicabo voluptates tempora beatae nemo distinctio vel.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="p-5 services">
+    <h1 class="card-title ps-3">OUR SERVICES</h1>
+    <div class="row g-0">
+      <div
+        class="col-lg-4 col-md-6 col-sm-12 p-3"
+        *ngFor="let service of services"
+      >
+        <div class="service vertical-center justify-content-end">
+          <div class="service-name vertical-center">
+            {{ service }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
