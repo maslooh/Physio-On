@@ -12,11 +12,10 @@
 
     .card-img {
       border-radius: 0px !important;
-      background-attachment: fixed;
       background-position: center;
       background-size: cover;
+      -webkit-background-size: cover;
       background-image: url(~src/assets/yoga-g146d33dce1_1920.jpg) !important;
-      position: absolute;
       height: 100%;
       width: 100%;
     }
@@ -49,9 +48,9 @@
     @media (min-width: 768px) {
       &-img {
         border-radius: 0px !important;
-        background-attachment: fixed;
         background-position: center;
         background-size: cover;
+        -webkit-background-size: cover;
         background-image: url(~src/assets/about.jpg) !important;
         height: 100%;
       }
@@ -68,6 +67,7 @@
     .service {
       background-image: url(~src/assets/service.jpg) !important;
       background-size: cover;
+      -webkit-background-size: cover;
       background-position: center;
       height: 400px;
       width: 100%;
@@ -90,7 +90,7 @@
 
   @media (max-width: 768px) {
     .services {
-      padding:30px 0px !important;
+      padding: 30px 0px !important;
     }
   }
 }
