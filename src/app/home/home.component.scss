@@ -40,6 +40,20 @@
         }
       }
     }
+
+    @media (max-width: 576px) {
+      .card-img-overlay {
+        padding-bottom: 330px;
+        margin-left: 50%;
+        .card-title-logo {
+          width: 180%;
+          // transform: rotate(-42deg);
+          position: absolute;
+          right: 61px;
+          top: 65px;
+        }
+      }
+    }
   }
 
   .about {
