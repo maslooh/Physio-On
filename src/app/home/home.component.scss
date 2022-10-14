@@ -1,7 +1,6 @@
 .home {
   .card-title {
     font-weight: 300;
-    width: 150px;
   }
   .intro {
     border: none !important;
@@ -10,22 +9,31 @@
     height: 100vh;
     overflow: hidden;
 
-    .card-img {
+    &-img {
       border-radius: 0px !important;
       background-position: center;
       background-size: cover;
       -webkit-background-size: cover;
-      background-image: url(~src/assets/yoga-g146d33dce1_1920.jpg) !important;
+      background-image: url(~src/assets/background2.jpg) !important;
       height: 100%;
       width: 100%;
     }
 
-    .card-img-overlay {
-      color: var(--main-intro-color);
-      margin-left: 55%;
+    @media (max-width: 768px) {
+      &-logo {
+        &-text {
+          display: none;
+        }
+      }
+    }
 
-      .card-title-logo {
-        width: 135%;
+    &-logo {
+      padding: 0 !important;
+      justify-content: flex-start;
+      margin-top: 4rem;
+      color: var(--main-intro-color);
+      &-img {
+        width: 60%;
       }
 
       // @media (max-width: 576px) {
@@ -33,24 +41,12 @@
       //     width: 150%;
       //   }
       // }
-
-      @media (max-width: 768px) {
-        .card-text {
-          display: none;
-        }
-      }
     }
 
     @media (max-width: 576px) {
-      .card-img-overlay {
-        padding-bottom: 330px;
-        margin-left: 50%;
-        .card-title-logo {
-          width: 180%;
-          // transform: rotate(-42deg);
-          position: absolute;
-          right: 61px;
-          top: 65px;
+      &-logo {
+        &-img {
+          width: 100%;
         }
       }
     }
@@ -69,7 +65,7 @@
         height: 100%;
       }
       .card-body {
-        padding: 80px 50px 100px 180px !important;
+        padding: 3rem !important;
         height: fit-content;
         min-height: calc(100vh - 56px);
       }
@@ -104,7 +100,7 @@
 
   @media (max-width: 768px) {
     .services {
-      padding: 30px 0px !important;
+      padding: 1rem 0px !important;
     }
   }
 }

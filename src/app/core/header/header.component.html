@@ -1,10 +1,13 @@
 <nav
   #navbar
   class="navbar navbar-dark bg-dark navbar-expand-lg fixed-top"
-  [ngClass]="{ 'navbar-transparent': window.scrollY == 0 }"
+  [ngClass]="{
+    'navbar-transparent': window.scrollY == 0 || window.innerWidth <= 992
+  }"
 >
   <div class="container-fluid">
     <button
+      #navbarToggler
       class="navbar-toggler"
       type="button"
       data-bs-toggle="offcanvas"
@@ -13,8 +16,6 @@
     >
       <span class="fa-solid fa-bars"></span>
     </button>
-    <a class="navbar-brand" href="#"
-      >Phsyio-on.com.au</a>
     <div
       class="offcanvas text-bg-dark offcanvas-start"
       tabindex="-1"
@@ -40,9 +41,6 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">News</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Book Now</a>
           </li>
         </ul>
       </div>

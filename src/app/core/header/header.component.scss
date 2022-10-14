@@ -16,6 +16,7 @@
 
   .navbar-toggler {
     border: none !important;
+    background-color: var(--service-color);
     &:focus {
       box-shadow: none !important;
     }
