@@ -48,17 +48,66 @@
       </div>
     </div>
   </div>
-  <div class="p-5 services">
-    <h1 class="card-title my-4 ps-3">OUR SERVICES</h1>
+  <div class="p-5 clinics">
+    <h1 class="card-title my-4 ps-3">OUR CLINICS</h1>
     <div class="row g-0">
       <div
         class="col-lg-4 col-md-6 col-sm-12 p-3"
-        *ngFor="let service of services"
+        *ngFor="let clinic of clinics"
       >
-        <div class="service vertical-center justify-content-end">
-          <div class="service-name vertical-center">
-            {{ service }}
+        <div class="clinic vertical-center justify-content-end">
+          <div class="clinic-name vertical-center">
+            {{ clinic |titlecase}}
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="p-5 services">
+    <h1 class="card-title my-4 ps-3">OUR SERVICES</h1>
+    <div
+      *ngFor="let service of services; odd as odd"
+      class="card services-card mb-4"
+    >
+      <div class="row g-0">
+        <div *ngIf="!odd || window.innerWidth <= 768" class="col-md-5">
+          <img src="assets/clinic.jpg" class="img-fluid" alt="..." />
+        </div>
+        <div class="col-md-7">
+          <div class="card-body">
+            <h3 class="card-title services-card-title">
+              {{ service.title | titlecase }}
+            </h3>
+            <p class="card-text">
+              {{ service.content }}
+            </p>
+          </div>
+        </div>
+        <div *ngIf="odd && window.innerWidth > 768" class="col-md-5">
+          <img src="assets/clinic.jpg" class="img-fluid" alt="..." />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="p-5 news">
+    <h1 class="card-title my-4 ps-3">OUR NEWS</h1>
+    <div *ngFor="let news of newsList; odd as odd" class="card news-card mb-4">
+      <div class="row g-0">
+        <div *ngIf="odd || window.innerWidth <= 768" class="col-md-5">
+          <img src="assets/clinic.jpg" class="img-fluid" alt="..." />
+        </div>
+        <div class="col-md-7">
+          <div class="card-body">
+            <h3 class="card-title news-card-title">
+              {{ news.title | titlecase }}
+            </h3>
+            <p class="card-text">
+              {{ news.content }}
+            </p>
+          </div>
+        </div>
+        <div *ngIf="!odd && window.innerWidth > 768" class="col-md-5">
+          <img src="assets/clinic.jpg" class="img-fluid" alt="..." />
         </div>
       </div>
     </div>

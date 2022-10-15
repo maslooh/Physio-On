@@ -72,9 +72,9 @@
     }
   }
 
-  .services {
+  .clinics {
     background-color: var(--secondary-background);
-    .service {
+    .clinic {
       background-image: url(~src/assets/service.jpg) !important;
       background-size: cover;
       -webkit-background-size: cover;
@@ -99,8 +99,26 @@
   }
 
   @media (max-width: 768px) {
+    .clinics,
+    .news,
     .services {
       padding: 1rem 0px !important;
     }
+  }
+
+  .news,
+  .services {
+    &-card {
+      border: none;
+      border-radius: 0;
+      background: none;
+      &-title {
+        font-weight: 300;
+      }
+    }
+  }
+
+  .news {
+    background-color: var(--secondary-background);
   }
 }
