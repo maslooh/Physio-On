@@ -1,8 +1,7 @@
 .navbar {
-  &-brand {
-    img {
-      width: 200px;
-    }
+  .active.nav-link{
+    font-weight: bold;
+    color: var(--active-link-color) !important;
   }
 
   &-dark {
@@ -36,11 +35,9 @@
       background-color: transparent !important;
     }
     &-transparent {
-      a {
+      .nav-link {
+        font-weight: bold;
         color: var(--link-color) !important;
-      }
-      .active {
-        color: var(--active-link-color) !important;
       }
     }
   }

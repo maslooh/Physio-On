@@ -73,7 +73,6 @@
   }
 
   .clinics {
-    background-color: var(--secondary-background);
     .clinic {
       background-image: url(~src/assets/service.jpg) !important;
       background-size: cover;
@@ -118,7 +117,7 @@
     }
   }
 
-  .news {
+  .secondaryBg{
     background-color: var(--secondary-background);
   }
 }

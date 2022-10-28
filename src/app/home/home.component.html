@@ -1,7 +1,13 @@
 <app-booking-button></app-booking-button>
 
-<div class="home">
-  <div class="card intro text-bg-dark">
+<div
+  class="home"
+  data-bs-spy="scroll"
+  data-bs-target="#navBar"
+  data-bs-offset="0"
+  data-bs-smooth-scroll="true"
+>
+  <div class="card intro text-bg-dark" id="intro">
     <div class="intro-img card-img"></div>
     <div class="intro-logo vertical-center card-img-overlay">
       <img
@@ -9,9 +15,10 @@
         src="assets/logo 1 copy.PNG"
         alt="Physio-on"
       />
+      <!-- <h3 class="intro-logo-text card-text">Get started on recovering!</h3> -->
     </div>
   </div>
-  <div class="card about">
+  <div class="card about" id="about">
     <div class="row g-0">
       <div class="col-md-5 md">
         <div class="about-img img-fluid"></div>
@@ -47,53 +54,37 @@
       </div>
     </div>
   </div>
-  <div class="p-5 clinics">
-    <h1 class="card-title my-4 ps-3">OUR CLINICS</h1>
+  <div class="p-5 services secondaryBg" id="services">
+    <h1 class="card-title my-4 ps-3">SERVICES</h1>
     <div class="row g-0">
       <div
-        class="col-lg-4 col-md-6 col-sm-12 p-3"
-        *ngFor="let clinic of clinics"
+        *ngFor="let service of services; odd as odd"
+        class="card col-4 services-card mb-4"
       >
-        <div class="clinic vertical-center justify-content-end">
-          <div class="clinic-name vertical-center">
-            {{ clinic |titlecase}}
-          </div>
+        <img
+          *ngIf="!odd"
+          src="assets/service.jpg"
+          class="img-fluid"
+          alt="..."
+        />
+        <div class="card-body bg-white">
+          <h3 class="card-title services-card-title">
+            {{ service.title | titlecase }}
+          </h3>
+          <p class="card-text">
+            {{ service.content }}
+          </p>
         </div>
+        <img *ngIf="odd" src="assets/service.jpg" class="img-fluid" alt="..." />
       </div>
     </div>
   </div>
-  <div class="p-5 services">
-    <h1 class="card-title my-4 ps-3">OUR SERVICES</h1>
-    <div
-      *ngFor="let service of services; odd as odd"
-      class="card services-card mb-4"
-    >
-      <div class="row g-0">
-        <div *ngIf="!odd || window.innerWidth <= 768" class="col-md-5">
-          <img src="assets/clinic.jpg" class="img-fluid" alt="..." />
-        </div>
-        <div class="col-md-7">
-          <div class="card-body">
-            <h3 class="card-title services-card-title">
-              {{ service.title | titlecase }}
-            </h3>
-            <p class="card-text">
-              {{ service.content }}
-            </p>
-          </div>
-        </div>
-        <div *ngIf="odd && window.innerWidth > 768" class="col-md-5">
-          <img src="assets/clinic.jpg" class="img-fluid" alt="..." />
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="p-5 news">
-    <h1 class="card-title my-4 ps-3">OUR NEWS</h1>
+  <div class="p-5 news" id="news">
+    <h1 class="card-title my-4 ps-3">NEWS & ARTICLES</h1>
     <div *ngFor="let news of newsList; odd as odd" class="card news-card mb-4">
       <div class="row g-0">
         <div *ngIf="odd || window.innerWidth <= 768" class="col-md-5">
-          <img src="assets/clinic.jpg" class="img-fluid" alt="..." />
+          <img src="assets/news.jpg" class="img-fluid" alt="..." />
         </div>
         <div class="col-md-7">
           <div class="card-body">
@@ -106,9 +97,25 @@
           </div>
         </div>
         <div *ngIf="!odd && window.innerWidth > 768" class="col-md-5">
-          <img src="assets/clinic.jpg" class="img-fluid" alt="..." />
+          <img src="assets/news.jpg" class="img-fluid" alt="..." />
         </div>
       </div>
     </div>
   </div>
+  <div class="p-5 clinics secondaryBg" id="locations">
+    <h1 class="card-title my-4 ps-3">OUR LOCATIONS</h1>
+    <div class="row g-0">
+      <div
+        class="col-lg-4 col-md-6 col-sm-12 p-3"
+        *ngFor="let clinic of clinics"
+      >
+        <div class="clinic vertical-center justify-content-end">
+          <div class="clinic-name vertical-center">
+            {{ clinic | titlecase }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="p-5 partners" id="partners"></div>
 </div>
