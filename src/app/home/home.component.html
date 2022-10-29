@@ -23,32 +23,19 @@
       <div class="col-md-5 md">
         <div class="about-img img-fluid"></div>
       </div>
-      <div class="col-md-7">
+      <div class="col-md-7 about-text d-flex align-items-center">
         <div class="card-body">
-          <h1 class="card-title my-4">ABOUT US</h1>
+          <h1 class="card-title mb-4 mt-md-0 mt-4">ABOUT US</h1>
           <p class="card-text">
-            This is a wider card with supporting text below as a natural lead-in
-            to additional content. This content is a little bit longer Lorem
-            quis quaerat est similique? Illo, quas! Lorem ipsum dolor, sit amet
-            consectetur adipisicing elit. Consequatur expedita fugit numquam
-            quaerat unde dolorum magni obcaecati, sunt mollitia, excepturi in
-            alias vitae explicabo voluptates tempora beatae nemo distinctio vel.
-          </p>
-          <p class="card-text">
-            This is a wider card with supporting text below as a natural lead-in
-            to additional content. This content is a little bit longer Lorem
-            quis quaerat est similique? Illo, quas! Lorem ipsum dolor, sit amet
-            consectetur adipisicing elit. Consequatur expedita fugit numquam
-            quaerat unde dolorum magni obcaecati, sunt mollitia, excepturi in
-            alias vitae explicabo voluptates tempora beatae nemo distinctio vel.
-          </p>
-          <p class="card-text">
-            This is a wider card with supporting text below as a natural lead-in
-            to additional content. This content is a little bit longer Lorem
-            quis quaerat est similique? Illo, quas! Lorem ipsum dolor, sit amet
-            consectetur adipisicing elit. Consequatur expedita fugit numquam
-            quaerat unde dolorum magni obcaecati, sunt mollitia, excepturi in
-            alias vitae explicabo voluptates tempora beatae nemo distinctio vel.
+            We are a multidisciplinary group with clinics located centrally
+            around Victoria's Cardinia and casey areas. We aim to give you the
+            treatment you deserve using a holistic approach to consider all
+            factors contributing to individual complaints, obtain an accurate
+            diagnosis, and design treatment plans according to your needs and
+            goals. At physio on, our therapists are highly skilled, certified
+            and recognised by all major providers and insurance companies. We
+            are also very proud to work alongside some of the most renowned
+            consultants.
           </p>
         </div>
       </div>
@@ -58,24 +45,31 @@
     <h1 class="card-title my-4 ps-3">SERVICES</h1>
     <div class="row g-0">
       <div
-        *ngFor="let service of services; odd as odd"
-        class="card col-4 services-card mb-4"
+        *ngFor="let service of services; odd as odd; last as last"
+        class="card {{last?'mb-3':''}} flex-row flex-md-column col-12 col-md-3 services-card "
       >
-        <img
-          *ngIf="!odd"
-          src="assets/service.jpg"
-          class="img-fluid"
-          alt="..."
-        />
-        <div class="card-body bg-white">
-          <h3 class="card-title services-card-title">
-            {{ service.title | titlecase }}
-          </h3>
-          <p class="card-text">
-            {{ service.content }}
-          </p>
-        </div>
-        <img *ngIf="odd" src="assets/service.jpg" class="img-fluid" alt="..." />
+          <div
+            *ngIf="!odd"
+            [ngStyle]="{
+              'background-image': 'url(assets/' + service.image + ')'
+            }"
+            class="services-img img-fluid col-md-12 col-6"
+          ></div>
+          <div class="services-content card-body bg-white">
+            <h3 class="card-title services-card-title">
+              {{ service.title | titlecase }}
+            </h3>
+            <p class="services-content-text card-text">
+              {{ service.content.intro }}
+            </p>
+          </div>
+          <div
+            *ngIf="odd"
+            class="services-img img-fluid col-md-12 col-6"
+            [ngStyle]="{
+              'background-image': 'url(assets/' + service.image + ')'
+            }"
+          ></div>
       </div>
     </div>
   </div>

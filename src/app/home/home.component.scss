@@ -55,16 +55,27 @@
   .about {
     border: none !important;
     border-radius: 0px !important;
+    @media (max-width: 768px) {
+      &-text {
+        background-position: center;
+        background-size: cover;
+        -webkit-background-size: cover;
+        background-image: url(~src/assets/about.jpg) !important;
+        .card-body {
+          background-color: opacify($color: #ffffff00, $amount: 0.6);
+        }
+      }
+    }
     @media (min-width: 768px) {
       &-img {
         border-radius: 0px !important;
-        background-position: center;
+        background-position: right;
         background-size: cover;
         -webkit-background-size: cover;
         background-image: url(~src/assets/about.jpg) !important;
         height: 100%;
       }
-      .card-body {
+      &-text {
         padding: 3rem !important;
         height: fit-content;
         min-height: calc(100vh - 56px);
@@ -74,7 +85,7 @@
 
   .clinics {
     .clinic {
-      background-image: url(~src/assets/service.jpg) !important;
+      background-image: url(~src/assets/about1.jpg) !important;
       background-size: cover;
       -webkit-background-size: cover;
       background-position: center;
@@ -93,6 +104,35 @@
           background-color: var(--service-color);
           color: var(--main-intro-color);
         }
+      }
+    }
+  }
+
+  .services {
+    &-card {
+      height: 70vh;
+    }
+    &-img {
+      height: 50% !important;
+      background-size: cover;
+      -webkit-background-size: cover;
+      background-position: center;
+    }
+    &-content {
+      height: 50% !important;
+      &-text {
+        height: 100px;
+      }
+    }
+    @media (max-width: 768px) {
+      &-card {
+        height: 45vh;
+      }
+      &-img {
+        height: 100% !important;
+      }
+      &-content {
+        height: 100% !important;
       }
     }
   }
@@ -117,7 +157,7 @@
     }
   }
 
-  .secondaryBg{
+  .secondaryBg {
     background-color: var(--secondary-background);
   }
 }

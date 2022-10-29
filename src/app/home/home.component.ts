@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { OurServicesService } from '../services/our-services.service';
 
 @Component({
   selector: 'app-home',
@@ -8,38 +9,6 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   clinics = ['clinic1', 'clinic2', 'clinic3', 'clinic4'];
-  services = [
-    {
-      title: 'service1',
-      content: ` This is a wider card with supporting text below as a natural
-  lead-in to additional content. This content is a little bit
-  longer. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-  Aperiam maiores iure beatae placeat et rerum possimus ipsa
-  commodi, deserunt dicta quis amet ipsam natus! Similique ex earum
-  saepe delectus ipsam?`,
-      image:''
-    },
-    {
-      title: 'service2',
-      content: ` This is a wider card with supporting text below as a natural
-  lead-in to additional content. This content is a little bit
-  longer. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-  Aperiam maiores iure beatae placeat et rerum possimus ipsa
-  commodi, deserunt dicta quis amet ipsam natus! Similique ex earum
-  saepe delectus ipsam?`,
-      image:''
-    },
-    {
-      title: 'service3',
-      content: ` This is a wider card with supporting text below as a natural
-  lead-in to additional content. This content is a little bit
-  longer. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-  Aperiam maiores iure beatae placeat et rerum possimus ipsa
-  commodi, deserunt dicta quis amet ipsam natus! Similique ex earum
-  saepe delectus ipsam?`,
-      image:''
-    },
-  ];
 
   newsList = [
     {
@@ -74,8 +43,12 @@ export class HomeComponent implements OnInit {
     },
   ];
 
+  services:any[]
+
   window: Window = window;
-  constructor() {}
+  constructor(private ourServices: OurServicesService) {
+    this.services=ourServices.services
+  }
 
   ngOnInit(): void {}
 }
