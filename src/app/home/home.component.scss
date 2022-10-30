@@ -1,7 +1,4 @@
 .home {
-  .section-title {
-    font-weight: 300;
-  }
   .intro {
     border: none !important;
     border-radius: 0px !important;
@@ -62,7 +59,8 @@
         -webkit-background-size: cover;
         background-image: url(~src/assets/about.jpg) !important;
         .card-body {
-          background-color: opacify($color: #ffffff00, $amount: 0.6);
+          background-color: var(--service-hover-color);
+          color: white;
         }
       }
     }
@@ -120,8 +118,6 @@
     }
     &-content {
       height: 50% !important;
-      &-text {
-      }
       &-read-more {
         height: 50%;
         width: 100%;
@@ -153,14 +149,6 @@
     }
   }
 
-  @media (max-width: 768px) {
-    .clinics,
-    .news,
-    .services {
-      padding: 1rem 0px !important;
-    }
-  }
-
   .news,
   .services {
     &-card {
@@ -171,9 +159,5 @@
         font-weight: 500;
       }
     }
-  }
-
-  .secondaryBg {
-    background-color: var(--secondary-background);
   }
 }

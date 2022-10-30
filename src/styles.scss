@@ -27,3 +27,17 @@ body {
 .p-button:focus {
   box-shadow: none !important;
 }
+
+.section-title {
+  font-weight: 300;
+}
+
+.secondaryBg {
+  background-color: var(--secondary-background);
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 1rem 0px !important;
+  }
+}

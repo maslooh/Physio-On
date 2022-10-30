@@ -1,0 +1,23 @@
+<div class="p-5 section partners" id="partners">
+  <p-carousel
+    [value]="providers"
+    [numVisible]="3"
+    [numScroll]="1"
+    [circular]="true"
+    [autoplayInterval]="3000"
+    [showIndicators]="false"
+    [responsiveOptions]="responsiveOptions"
+  >
+    <ng-template pTemplate="header">
+      <h1 class="section-title my-4 ps-3">PARTNERS & PROVIDERS</h1>
+    </ng-template>
+    <ng-template let-provider pTemplate="item">
+      <div
+        class="provider"
+        [ngStyle]="{
+          'background-image': 'url(' + provider + ')'
+        }"
+      ></div>
+    </ng-template>
+  </p-carousel>
+</div>
