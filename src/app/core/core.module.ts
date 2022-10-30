@@ -10,6 +10,6 @@ import { bootstrapApplication } from '@angular/platform-browser';
 @NgModule({
   declarations: [HeaderComponent, FooterComponent, BookingButtonComponent],
   imports: [CommonModule,ButtonModule,RippleModule,RouterModule],
-  exports: [HeaderComponent,FooterComponent,BookingButtonComponent,RouterModule],
+  exports: [HeaderComponent,FooterComponent,BookingButtonComponent,RouterModule,ButtonModule,RippleModule],
 })
 export class CoreModule {}

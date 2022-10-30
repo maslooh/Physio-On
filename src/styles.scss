@@ -3,11 +3,11 @@ body {
   --main-intro-color: rgba(33, 33, 33, 1);
   --link-color: rgba(0, 0, 0, 0.66);
   --active-link-color: #3fa03a;
-  --secondary-background:#f0f0f0;
-  --service-color:#ffffff9a;
-  --service-hover-color:#0000009a;
-  --logo-dark-green:#2c7028;
-  --logo-light-green:#3fa03a;
+  --secondary-background: #f0f0f0;
+  --service-color: #ffffff9a;
+  --service-hover-color: #0000009a;
+  --logo-dark-green: #2c7028;
+  --logo-light-green: #3fa03a;
   font-family: Lato;
 }
 
@@ -18,8 +18,12 @@ body {
   flex-direction: column;
 }
 
-.horizontal-center{
+.horizontal-center {
   display: flex;
   align-items: center;
   flex-direction: column;
+}
+
+.p-button:focus {
+  box-shadow: none !important;
 }

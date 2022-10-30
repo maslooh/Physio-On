@@ -25,10 +25,12 @@ export class HeaderComponent implements OnInit {
   }
 
   onClick(e: Event, navbarClose: HTMLButtonElement) {
-    this.activatedRoute.fragment.subscribe((_) => {
-      this.JumpTo(_);
+    this.activatedRoute.fragment.subscribe({
+      next: (_) => {
+        this.JumpTo(_);
+        navbarClose.click();
+      },
     });
-    navbarClose.click();
   }
 
   JumpTo(section: any) {

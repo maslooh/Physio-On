@@ -25,7 +25,7 @@
       </div>
       <div class="col-md-7 about-text d-flex align-items-center">
         <div class="card-body">
-          <h1 class="card-title mb-4 mt-md-0 mt-4">ABOUT US</h1>
+          <h1 class="card-title section-title mb-4 mt-md-0 mt-4">ABOUT US</h1>
           <p class="card-text">
             We are a multidisciplinary group with clinics located centrally
             around Victoria's Cardinia and casey areas. We aim to give you the
@@ -42,39 +42,50 @@
     </div>
   </div>
   <div class="p-5 services secondaryBg" id="services">
-    <h1 class="card-title my-4 ps-3">SERVICES</h1>
+    <h1 class="card-title section-title my-4 ps-3">SERVICES</h1>
     <div class="row g-0">
       <div
         *ngFor="let service of services; odd as odd; last as last"
-        class="card {{last?'mb-3':''}} flex-row flex-md-column col-12 col-md-3 services-card "
+        class="card {{
+          last ? 'mb-3' : ''
+        }} flex-row flex-md-column col-12 col-md-3 services-card "
       >
-          <div
-            *ngIf="!odd"
-            [ngStyle]="{
-              'background-image': 'url(assets/' + service.image + ')'
-            }"
-            class="services-img img-fluid col-md-12 col-6"
-          ></div>
-          <div class="services-content card-body bg-white">
-            <h3 class="card-title services-card-title">
-              {{ service.title | titlecase }}
-            </h3>
-            <p class="services-content-text card-text">
-              {{ service.content.intro }}
-            </p>
+        <div
+          *ngIf="!odd"
+          [ngStyle]="{
+            'background-image': 'url(assets/' + service.image + ')'
+          }"
+          class="services-img img-fluid col-md-12 col-6"
+        ></div>
+        <div class="services-content overflow-hidden card-body position-relative bg-white">
+          <h4 class="card-title services-card-title">
+            {{ service.title | titlecase }}
+          </h4>
+          <p class="services-content-text card-text">
+            {{ service.content.intro }}
+          </p>
+          <div class="services-content-read-more vertical-center position-absolute">
+            <button
+              pButton
+              pRipple
+              type="button"
+              label="Read More"
+              class="p-button-outlined p-button-rounded btn p-button-secondary m-3"
+            ></button>
           </div>
-          <div
-            *ngIf="odd"
-            class="services-img img-fluid col-md-12 col-6"
-            [ngStyle]="{
-              'background-image': 'url(assets/' + service.image + ')'
-            }"
-          ></div>
+        </div>
+        <div
+          *ngIf="odd"
+          class="services-img img-fluid col-md-12 col-6"
+          [ngStyle]="{
+            'background-image': 'url(assets/' + service.image + ')'
+          }"
+        ></div>
       </div>
     </div>
   </div>
   <div class="p-5 news" id="news">
-    <h1 class="card-title my-4 ps-3">NEWS & ARTICLES</h1>
+    <h1 class="card-title section-title my-4 ps-3">NEWS & ARTICLES</h1>
     <div *ngFor="let news of newsList; odd as odd" class="card news-card mb-4">
       <div class="row g-0">
         <div *ngIf="odd || window.innerWidth <= 768" class="col-md-5">
@@ -97,7 +108,7 @@
     </div>
   </div>
   <div class="p-5 clinics secondaryBg" id="locations">
-    <h1 class="card-title my-4 ps-3">OUR LOCATIONS</h1>
+    <h1 class="card-title section-title my-4 ps-3">OUR LOCATIONS</h1>
     <div class="row g-0">
       <div
         class="col-lg-4 col-md-6 col-sm-12 p-3"
