@@ -8,8 +8,10 @@ import { RippleModule } from 'primeng/ripple';
 import { RouterModule } from '@angular/router';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { CarouselModule } from 'primeng/carousel';
+import { AddressPipe } from './address.pipe';
+import { ReadMoreComponent } from './read-more/read-more.component';
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent, BookingButtonComponent],
+  declarations: [HeaderComponent, FooterComponent, BookingButtonComponent, AddressPipe, ReadMoreComponent],
   imports: [
     CommonModule,
     ButtonModule,

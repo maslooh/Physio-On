@@ -1,0 +1,49 @@
+<div class="p-5 section locations secondaryBg" id="locations">
+  <h1 class="card-title section-title my-4 ps-3">OUR LOCATIONS</h1>
+  <div class="mb-3 ps-3 font-300">
+    <h5 class="font-300">Working Hours</h5>
+    <ul class="nav flex-column">
+      <li class="nav-item mb-2">
+        <span>Monday - Friday: 9am - 6pm</span>
+      </li>
+      <li class="nav-item mb-2">
+        <span>Saturday: 9am - 3pm</span>
+      </li>
+    </ul>
+  </div>
+  <div class="row g-0">
+    <div
+      class="col-lg-4 col-md-6 col-sm-12 px-0 px-md-3 p-3"
+      *ngFor="let location of locations"
+    >
+      <div class="location vertical-center justify-content-end">
+        <div
+          class="location-details font-300 p-2 d-flex flex-column flex-wrap align-content-between"
+        >
+          <a href="mailto: {{ location.email }}" class="nav-link p-0"
+            ><i class="fa-solid fa-envelope"></i> {{ location.email }}</a
+          >
+          <a href="tel:{{ location.mobile }}" class="nav-link p-0"
+            ><i class="fa-solid fa-mobile"></i> {{ location.mobile }}</a
+          >
+          <a href="tel:{{ location.telephone }}" class="nav-link p-0"
+            ><i class="fa-solid fa-phone"></i> {{ location.telephone }}</a
+          >
+          <a
+            href="fax:{{ location.fax }}"
+            *ngIf="location.fax"
+            class="nav-link p-0"
+            ><i class="fa-solid fa-fax"></i> {{ location.fax }}</a
+          >
+          <a
+            [href]="location.location"
+            target="_blank"
+            class="nav-link p-0 location-address d-flex"
+            ><i class="fa-solid fa-location-dot pe-1 pt-1"></i>
+            <div class="pe-2">{{ location.address }}</div></a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -15,10 +15,9 @@
         src="assets/logo 1 copy.PNG"
         alt="Physio-on"
       />
-      <!-- <h3 class="intro-logo-text card-text">Get started on recovering!</h3> -->
     </div>
   </div>
-  <div class="card about" id="about">
+  <div class="card font-300 about" id="about">
     <div class="row g-0">
       <div class="col-md-5 md">
         <div class="about-img img-fluid"></div>
@@ -41,7 +40,7 @@
       </div>
     </div>
   </div>
-  <div class="p-5 section services secondaryBg" id="services">
+  <div class="p-5 font-300 section services secondaryBg" id="services">
     <h1 class="card-title section-title my-4 ps-3">SERVICES</h1>
     <div class="row g-0">
       <div
@@ -84,7 +83,7 @@
       </div>
     </div>
   </div>
-  <div class="p-5 section news" id="news">
+  <div class="p-5 font-300 section news" id="news">
     <h1 class="card-title section-title my-4 ps-3">NEWS & ARTICLES</h1>
     <div *ngFor="let news of newsList; odd as odd" class="card news-card mb-4">
       <div class="row g-0">
@@ -107,20 +106,6 @@
       </div>
     </div>
   </div>
-  <div class="p-5 section clinics secondaryBg" id="locations">
-    <h1 class="card-title section-title my-4 ps-3">OUR LOCATIONS</h1>
-    <div class="row g-0">
-      <div
-        class="col-lg-4 col-md-6 col-sm-12 p-3"
-        *ngFor="let clinic of clinics"
-      >
-        <div class="clinic vertical-center justify-content-end">
-          <div class="clinic-name vertical-center">
-            {{ clinic | titlecase }}
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <app-locations></app-locations>
   <app-providers></app-providers>
 </div>

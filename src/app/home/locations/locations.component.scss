@@ -1,0 +1,25 @@
+.locations {
+  .location {
+    background-image: url(~src/assets/about1.jpg) !important;
+    background-size: cover;
+    -webkit-background-size: cover;
+    background-position: center;
+    height: 400px;
+    width: 100%;
+    &-details {
+      width: 100%;
+      height: 30%;
+      background-color: var(--service-hover-color);
+      color: white;
+      transition-property: background-color;
+      transition-duration: 400ms;
+      .location-address {
+        width: 46%;
+      }
+      &:hover {
+        background-color: var(--service-color);
+        color: var(--main-intro-color);
+      }
+    }
+  }
+}

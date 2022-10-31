@@ -1,4 +1,4 @@
-<div class="container footer">
+<div class="container font-300 footer">
   <footer class="py-5">
     <div class="row">
       <div class="col-6 col-md-2 mb-3">
@@ -20,24 +20,26 @@
       </div>
 
       <div class="col-6 col-md-2 mb-3">
-        <h5>Hours</h5>
+        <h5>Working Hours</h5>
         <ul class="nav flex-column">
           <li class="nav-item mb-2">
-            <span class="text-muted">Monday - Friday: 7am - 7pm</span>
+            <span class="text-muted">Monday - Friday: 9am - 6pm</span>
           </li>
           <li class="nav-item mb-2">
-            <span class="text-muted">Saturday - Sunday: Closed</span>
+            <span class="text-muted">Saturday: 9am - 3pm</span>
           </li>
         </ul>
       </div>
 
       <div class="col-md-5 offset-md-1 mb-3">
-        <h5>Addresses</h5>
+        <h5>Locations</h5>
         <a
-          href="https://goo.gl/maps/rfyYnyjdp4zd7bXC8"
+          *ngFor="let location of locationsService.locations"
+          [href]="location.location"
+          target="_blank"
           class="nav-link p-0 text-muted"
-          ><i class="fa-solid fa-location-dot"></i> 340 Princes Hwy, Officer
-          3809</a
+          ><i class="fa-solid fa-location-dot"></i>
+          {{ location.address | address }}</a
         >
       </div>
     </div>
@@ -57,11 +59,6 @@
         </li>
         <li class="ms-3">
           <a class="link-dark" href="#"><i class="fa fa-instagram"></i></a>
-        </li>
-        <li class="ms-3">
-          <a class="link-dark" href="https://goo.gl/maps/rfyYnyjdp4zd7bXC8"
-            ><i class="fa-solid fa-location-dot"></i
-          ></a>
         </li>
       </ul>
     </div>
