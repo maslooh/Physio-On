@@ -11,7 +11,13 @@ import { CarouselModule } from 'primeng/carousel';
 import { AddressPipe } from './address.pipe';
 import { ReadMoreComponent } from './read-more/read-more.component';
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent, BookingButtonComponent, AddressPipe, ReadMoreComponent],
+  declarations: [
+    HeaderComponent,
+    FooterComponent,
+    BookingButtonComponent,
+    AddressPipe,
+    ReadMoreComponent,
+  ],
   imports: [
     CommonModule,
     ButtonModule,
@@ -27,6 +33,7 @@ import { ReadMoreComponent } from './read-more/read-more.component';
     ButtonModule,
     RippleModule,
     CarouselModule,
+    ReadMoreComponent,
   ],
 })
 export class CoreModule {}

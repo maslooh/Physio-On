@@ -93,23 +93,6 @@
     }
     &-content {
       height: 50% !important;
-      &-read-more {
-        height: 50%;
-        width: 100%;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(0deg, white, rgba(255, 255, 255, 0.692));
-        justify-content: end;
-        .btn {
-          color: var(--main-intro-color);
-          border-color: var(--main-intro-color);
-          &:hover {
-            background-color: #22c55e;
-            border-color: #22c55e;
-            color: white;
-          }
-        }
-      }
     }
     @media (max-width: 768px) {
       &-card {

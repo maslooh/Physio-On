@@ -56,22 +56,16 @@
           }"
           class="services-img img-fluid col-md-12 col-6"
         ></div>
-        <div class="services-content overflow-hidden card-body position-relative bg-white">
+        <div
+          class="services-content overflow-hidden card-body position-relative bg-white"
+        >
           <h4 class="card-title services-card-title">
             {{ service.title | titlecase }}
           </h4>
           <p class="services-content-text card-text">
             {{ service.content.intro }}
           </p>
-          <div class="services-content-read-more vertical-center position-absolute">
-            <button
-              pButton
-              pRipple
-              type="button"
-              label="Read More"
-              class="p-button-outlined p-button-rounded btn p-button-secondary m-3"
-            ></button>
-          </div>
+          <app-read-more></app-read-more>
         </div>
         <div
           *ngIf="odd"
@@ -90,7 +84,7 @@
         <div *ngIf="odd || window.innerWidth <= 768" class="col-md-5">
           <img src="assets/news.jpg" class="img-fluid" alt="..." />
         </div>
-        <div class="col-md-7">
+        <div class="col-md-7 position-relative">
           <div class="card-body">
             <h3 class="card-title news-card-title">
               {{ news.title | titlecase }}
@@ -99,6 +93,7 @@
               {{ news.content }}
             </p>
           </div>
+          <app-read-more></app-read-more>
         </div>
         <div *ngIf="!odd && window.innerWidth > 768" class="col-md-5">
           <img src="assets/news.jpg" class="img-fluid" alt="..." />
