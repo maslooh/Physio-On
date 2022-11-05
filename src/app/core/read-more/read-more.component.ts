@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ReadMoreComponent implements OnInit {
   
   @Input() btnClass: string = '';
+  @Input() route:string=''
 
   constructor() {}
 

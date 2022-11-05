@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FooterComponent } from './core/footer/footer.component';
-import { HeaderComponent } from './core/header/header.component';
 import { HomeComponent } from './home/home.component';
+import { ServiceItemComponent } from './our-services/service-item/service-item.component';
 
 const routes: Routes = [
   {
@@ -15,8 +14,8 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'test',
-    component:FooterComponent
+    path: 'services/:id',
+    component:ServiceItemComponent
   }
 ];
 

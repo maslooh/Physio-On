@@ -77,5 +77,9 @@ export class OurServicesService {
     },
   ];
 
-  constructor() {}
+  constructor() { }
+  
+  getServiceById(id:any) {
+    return this.services.find(_ => _.id == id);
+  }
 }

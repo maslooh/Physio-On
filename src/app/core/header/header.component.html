@@ -41,7 +41,11 @@
           >
             <a
               class="nav-link"
-              (click)="onClick($event, navbarClose)"
+              [ngClass]="{
+                'internal-active': item.value == currentRoute,
+                'link-transparent': !['services', 'news'].includes(currentRoute)
+              }"
+              (click)="navbarClose.click()"
               aria-current="page"
               [fragment]="item.value"
               routerLink=""

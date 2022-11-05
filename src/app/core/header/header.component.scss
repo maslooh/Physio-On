@@ -1,7 +1,10 @@
 .navbar {
-  .active.nav-link{
+  .active.nav-link {
     font-weight: bold;
     color: var(--active-link-color) !important;
+  }
+  .internal-active {
+    @extend .active;
   }
 
   &-dark {
@@ -35,7 +38,7 @@
       background-color: transparent !important;
     }
     &-transparent {
-      .nav-link {
+      .link-transparent {
         font-weight: bold;
         color: var(--link-color) !important;
       }

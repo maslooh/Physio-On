@@ -1,5 +1,6 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs';
 
 enum navItems {
   Home = 'intro',
@@ -17,20 +18,21 @@ enum navItems {
 export class HeaderComponent implements OnInit {
   window: Window = window;
   navItems = navItems;
+  currentRoute: string = '';
+  currentFragment: string = '';
 
-  constructor(private activatedRoute: ActivatedRoute) {}
+  constructor(private activatedRoute: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
     this.window.addEventListener('scroll', () => {});
-  }
-
-  onClick(e: Event, navbarClose: HTMLButtonElement) {
-    this.activatedRoute.fragment.subscribe({
-      next: (_) => {
-        this.JumpTo(_);
-        navbarClose.click();
-      },
-    });
+    this.router.events
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe((_) => {
+        this.currentRoute = (_ as NavigationEnd).url.split('/')[1];
+        if (this.currentRoute.includes('#')) {
+          this.JumpTo(this.currentRoute.split('#')[1]);
+        }
+      });
   }
 
   JumpTo(section: any) {

@@ -1,7 +1,6 @@
 .home {
   .logo-background {
     background-color: var(--service-color);
-    // opacity: 0.5;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -25,14 +24,6 @@
       width: 100%;
     }
 
-    @media (max-width: 768px) {
-      &-logo {
-        &-text {
-          display: none;
-        }
-      }
-    }
-
     &-logo {
       padding: 0 !important;
       justify-content: center;
@@ -50,7 +41,7 @@
     }
 
     @media (max-width: 576px) {
-      .test {
+      .logo-background {
         right: 0%;
         transform: skew(0deg);
         top: 60%;

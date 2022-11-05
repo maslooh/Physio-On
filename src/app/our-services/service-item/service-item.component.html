@@ -1,0 +1,21 @@
+<div class="service secondaryBg">
+  <div
+    class="service-img vertical-center"
+    [ngStyle]="{
+      'background-image': 'url(assets/' + service.image + ')'
+    }"
+  >
+    <div class="service-img-title vertical-center">{{ service.title }}</div>
+  </div>
+  <div class="p-4 p-md-5 service-content secondaryBg">
+    <p class="service-content-intro mb-0">
+      {{ service.content.intro }}
+    </p>
+    <div class="service-content-listTitle mb-1">
+      {{ service.content.ListTitle }}:
+    </div>
+    <ul class="service-content-list">
+      <li *ngFor="let item of service.content.list">{{ item }}</li>
+    </ul>
+  </div>
+</div>

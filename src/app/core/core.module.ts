@@ -26,6 +26,7 @@ import { ReadMoreComponent } from './read-more/read-more.component';
     CarouselModule,
   ],
   exports: [
+    CommonModule,
     HeaderComponent,
     FooterComponent,
     BookingButtonComponent,
