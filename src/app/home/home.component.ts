@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as bootstrap from 'bootstrap';
 import { OurServicesService } from '../services/our-services.service';
 
 @Component({
@@ -7,7 +8,6 @@ import { OurServicesService } from '../services/our-services.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-
   clinics = ['clinic1', 'clinic2', 'clinic3', 'clinic4'];
 
   newsList = [
@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
   Aperiam maiores iure beatae placeat et rerum possimus ipsa
   commodi, deserunt dicta quis amet ipsam natus! Similique ex earum
   saepe delectus ipsam?`,
-      image:''
+      image: '',
     },
     {
       title: 'news title 2',
@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
   Aperiam maiores iure beatae placeat et rerum possimus ipsa
   commodi, deserunt dicta quis amet ipsam natus! Similique ex earum
   saepe delectus ipsam?`,
-      image:''
+      image: '',
     },
     {
       title: 'news title 3',
@@ -39,16 +39,26 @@ export class HomeComponent implements OnInit {
   Aperiam maiores iure beatae placeat et rerum possimus ipsa
   commodi, deserunt dicta quis amet ipsam natus! Similique ex earum
   saepe delectus ipsam?`,
-      image:''
+      image: '',
     },
   ];
 
-  services:any[]
+  services: any[];
 
   window: Window = window;
   constructor(private ourServices: OurServicesService) {
-    this.services=ourServices.services
+    this.services = ourServices.services;
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    document.querySelectorAll('#test').forEach((el) => {
+      el.addEventListener('shown.bs.tab', () => {
+        const target = el.getAttribute('data-bs-target');
+        const scrollElem = document.querySelector(
+          `${target} [data-bs-spy="scroll"]`
+        );
+        bootstrap.ScrollSpy.getOrCreateInstance(scrollElem!).refresh();
+      });
+    });
+  }
 }

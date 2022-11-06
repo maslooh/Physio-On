@@ -18,6 +18,5 @@ export class ServiceItemComponent implements OnInit {
   ngOnInit(): void {
     let id = this.activatedRoute.snapshot.paramMap.get('id');
     this.service = this.services.getServiceById(id);
-    window.scrollTo(0, 0);
   }
 }

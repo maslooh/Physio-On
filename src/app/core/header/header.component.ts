@@ -19,7 +19,6 @@ export class HeaderComponent implements OnInit {
   window: Window = window;
   navItems = navItems;
   currentRoute: string = '';
-  currentFragment: string = '';
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router) {}
 
@@ -29,14 +28,7 @@ export class HeaderComponent implements OnInit {
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe((_) => {
         this.currentRoute = (_ as NavigationEnd).url.split('/')[1];
-        if (this.currentRoute.includes('#')) {
-          this.JumpTo(this.currentRoute.split('#')[1]);
-        }
       });
-  }
-
-  JumpTo(section: any) {
-    document.getElementById(section)?.scrollIntoView({ behavior: 'smooth' });
   }
 
   sortNull() {
