@@ -16,7 +16,12 @@
       class="col-lg-4 col-md-6 col-sm-12 px-0 px-md-3 p-3"
       *ngFor="let location of locations"
     >
-      <div class="location vertical-center justify-content-end">
+      <div
+        class="location vertical-center justify-content-end"
+        [ngStyle]="{
+          'background-image': 'url(assets/' + location.image + ')'
+        }"
+      >
         <div
           class="location-details font-300 p-2 d-flex flex-column flex-wrap align-content-between"
         >

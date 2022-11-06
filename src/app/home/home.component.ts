@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import * as bootstrap from 'bootstrap';
 import { OurServicesService } from '../services/our-services.service';
 
 @Component({
@@ -47,18 +46,8 @@ export class HomeComponent implements OnInit {
 
   window: Window = window;
   constructor(private ourServices: OurServicesService) {
-    this.services = ourServices.services;
+    this.services = this.ourServices.services;
   }
 
-  ngOnInit(): void {
-    document.querySelectorAll('#test').forEach((el) => {
-      el.addEventListener('shown.bs.tab', () => {
-        const target = el.getAttribute('data-bs-target');
-        const scrollElem = document.querySelector(
-          `${target} [data-bs-spy="scroll"]`
-        );
-        bootstrap.ScrollSpy.getOrCreateInstance(scrollElem!).refresh();
-      });
-    });
-  }
+  ngOnInit(): void {}
 }

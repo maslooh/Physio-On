@@ -47,8 +47,7 @@
               }"
               (click)="navbarClose.click()"
               aria-current="page"
-              [fragment]="item.value"
-              routerLink=""
+              href="/#{{ item.value }}"
               >{{ item.key }}</a
             >
           </li>
