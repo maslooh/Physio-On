@@ -14,4 +14,9 @@
       background-color: var(--service-hover-color);
     }
   }
+  &-content{
+    &-listTitle{
+      font-weight: bold;
+    }
+  }
 }
