@@ -116,6 +116,16 @@
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
             ]
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "Physio-on:build:production",
+            "firebaseProject": "physio-on-f0660",
+            "firebaseHostingSite": "physio-on-f0660"
+          }
         }
       }
     }

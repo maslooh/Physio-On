@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NewsService } from '../services/news.service';
 import { OurServicesService } from '../services/our-services.service';
 
 @Component({
@@ -45,9 +46,17 @@ export class HomeComponent implements OnInit {
   services: any[];
 
   window: Window = window;
-  constructor(private ourServices: OurServicesService) {
+  constructor(
+    private ourServices: OurServicesService,
+    private newsService: NewsService
+  ) {
     this.services = this.ourServices.services;
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.newsService.GetNewssList().subscribe((_) => console.log('list', _));
+    this.newsService
+      .getNewsItemById('a9VWqVlzpx08aAJRMjDk')
+      .subscribe((_) => console.log('item', _));
+  }
 }

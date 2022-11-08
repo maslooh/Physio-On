@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { SignInComponent } from './core/sign-in/sign-in.component';
 import { HomeComponent } from './home/home.component';
 import { ServiceItemComponent } from './our-services/service-item/service-item.component';
 
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: 'services/:id',
     component: ServiceItemComponent,
+  },
+  {
+    path: 'signIn',
+    component: SignInComponent,
   },
 ];
 

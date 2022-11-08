@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "physio-on-f0660"
+  },
+  "targets": {
+    "physio-on-f0660": {
+      "hosting": {
+        "Physio-on": [
+          "physio-on-f0660"
+        ]
+      }
+    }
   }
 }

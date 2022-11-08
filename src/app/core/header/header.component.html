@@ -52,6 +52,14 @@
             >
           </li>
         </ul>
+        <app-dynamic-dialog
+          [component]="signInComponent"
+          [maximizable]="false"
+          styleClass="signIn-dialog"
+          label="Sign In"
+          class="vertical-center align-items-start px-3"
+          dialogBtnStyleClass="signIn-dialog-btn p-0"
+        ></app-dynamic-dialog>
       </div>
     </div>
   </div>

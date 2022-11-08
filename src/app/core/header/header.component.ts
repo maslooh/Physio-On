@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
+import { SignInComponent } from '../sign-in/sign-in.component';
 
 enum navItems {
   Home = 'intro',
@@ -19,6 +20,7 @@ export class HeaderComponent implements OnInit {
   window: Window = window;
   navItems = navItems;
   currentRoute: string = '';
+  signInComponent = SignInComponent;
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router) {}
 
