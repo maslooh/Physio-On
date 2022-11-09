@@ -30,6 +30,9 @@ export class HeaderComponent implements OnInit {
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe((_) => {
         this.currentRoute = (_ as NavigationEnd).url.split('/')[1];
+        this.currentRoute = this.currentRoute.startsWith('#')
+          ? this.currentRoute.split('#')[1]
+          : this.currentRoute;
       });
   }
 

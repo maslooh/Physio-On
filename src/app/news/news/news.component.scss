@@ -5,6 +5,14 @@
       position: absolute;
       top: 0px;
       right: 0px;
+      background-color: var(--service-color);
+      &-item {
+        &:hover,
+        :focus,
+        :active {
+          background-color: transparent !important;
+        }
+      }
     }
   }
 }
