@@ -1,1 +1,31 @@
-<p>news-item works!</p>
+<div *ngIf="newsItem" class="service secondaryBg">
+  <div
+    class="news-img vertical-center"
+    [ngStyle]="{
+      'background-image': 'url(assets/newsCover.jpg)'
+    }"
+  >
+    <div class="news-img-title vertical-center">News & Articles</div>
+  </div>
+  <div class="p-3 p-md-5 news-content flex-wrap-reverse row secondaryBg">
+    <div class="news-content-intro mt-4 mt-md-0 col-12 col-md-6">
+      <h3>{{ newsItem.title }}</h3>
+      <p>
+        {{ newsItem.content }}
+      </p>
+    </div>
+    <div class="col-12 col-md-6">
+      <img
+        class="news-content-image"
+        src="assets/{{ newsItem.image }}"
+        alt=""
+      />
+      <!-- <ima
+        class="news-content-image"
+        [ngStyle]="{
+          'background-image': 'url(assets/' + newsItem.image + ')'
+        }"
+      ></div> -->
+    </div>
+  </div>
+</div>

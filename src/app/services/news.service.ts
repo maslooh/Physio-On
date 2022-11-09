@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { News } from '../models/news';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { CollectionReference, startAfter } from 'firebase/firestore';
 
 @Injectable({
   providedIn: 'root',
@@ -9,16 +8,16 @@ import { CollectionReference, startAfter } from 'firebase/firestore';
 export class NewsService {
   constructor(private afs: AngularFirestore) {}
 
-  GetNewsList(lastItem:News|null = null, limit: number = 3) {
+  GetNewsList(lastItem: News | null = null, limit: number = 3) {
     const newsCollection = this.afs.collection<News>('news', (ref) =>
       ref.orderBy('lastModified').startAfter(lastItem).limit(limit)
     );
-    return newsCollection.valueChanges();
+    return newsCollection.valueChanges({ idField: 'id' });
   }
 
-  getNewsItemById(id: string) {
+  getNewsItemById(id: string | null) {
     let newsItemDoc = this.afs.doc<News>(`news/${id}`);
-    return newsItemDoc.valueChanges();
+    return newsItemDoc.valueChanges({ idField: 'id' });
   }
 
   updateNewsItem(newsItem: News) {

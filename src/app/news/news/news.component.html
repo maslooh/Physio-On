@@ -17,7 +17,7 @@
           <p class="card-text">
             {{ news.content }}
           </p>
-          <app-read-more></app-read-more>
+          <app-read-more route="news/{{news.id}}"></app-read-more>
         </div>
       </div>
       <div *ngIf="!odd && window.innerWidth > 768" class="col-md-5">
