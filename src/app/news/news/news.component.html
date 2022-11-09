@@ -1,1 +1,68 @@
-<p>news works!</p>
+<div class="p-5 font-300 section news" id="news">
+  <h1 class="card-title section-title my-4 ps-3">NEWS & ARTICLES</h1>
+  <div *ngFor="let news of newsList; odd as odd" class="card news-card mb-4">
+    <div class="row g-0">
+      <div *ngIf="odd || window.innerWidth <= 768" class="col-md-5 news-image">
+        <img src="assets/news.jpg" class="img-fluid" alt="..." />
+        <ng-container *ngTemplateOutlet="actions"></ng-container>
+      </div>
+      <div class="col-md-7 position-relative">
+        <div class="card-body">
+          <h3 class="card-title news-card-title">
+            {{ news.title | titlecase }}
+          </h3>
+          <div class="text-muted">
+            {{ news.lastModified.toDate() | date }}
+          </div>
+          <p class="card-text">
+            {{ news.content }} Lorem, ipsum dolor sit amet Lorem ipsum dolor sit
+            amet consectetur adipisicing elit. Cumque tenetur nemo vel fuga
+            temporibus est alias officia modi, voluptate, corrupti ratione
+            atque, ipsam praesentium velit numquam minima. Quibusdam,
+            consectetur voluptates. Lorem ipsum dolor sit amet consectetur,
+            adipisicing elit. Cum pariatur assumenda illo ad est sint ut
+            nesciunt molestias. Asperiores aliquid corporis minima quam culpa
+            sed corrupti dolorum ipsam magni! Explicabo. consectetur adipisicing
+            elit. Unde a exercitationem cumque. Perferendis error, eos molestiae
+            quaerat assumenda at dolor voluptas iure commodi earum suscipit
+            atque necessitatibus et dolore tempore.
+          </p>
+          <app-read-more></app-read-more>
+        </div>
+      </div>
+      <div *ngIf="!odd && window.innerWidth > 768" class="col-md-5">
+        <img src="assets/news.jpg" class="img-fluid" alt="..." />
+        <ng-container *ngTemplateOutlet="actions"></ng-container>
+      </div>
+    </div>
+  </div>
+  <div class="vertical-center">
+    <a
+      pButton
+      pRipple
+      type="button"
+      label="More News"
+      *ngIf="hasMoreNewsBtn"
+      class="mt-4 p-button-rounded p-button-secondary p-button-text text-decoration-underline text-dark flex-row"
+      
+    ></a>
+  </div>
+</div>
+
+<ng-template #actions>
+  <div *ngIf="authService.isSignedIn" class="news-image-actions">
+    <button
+      pButton
+      pRipple
+      type="button"
+      icon="pi pi-pencil"
+      class="p-button-rounded p-button-success text-dark p-button-text"
+    ></button>
+    <button
+      pButton
+      pRipple
+      type="button"
+      icon="pi pi-trash"
+      class="p-button-rounded p-button-success text-dark p-button-text"
+    ></button></div
+></ng-template>

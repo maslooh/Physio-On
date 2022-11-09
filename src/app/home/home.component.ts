@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { NewsService } from '../services/news.service';
 import { OurServicesService } from '../services/our-services.service';
 
@@ -6,10 +6,9 @@ import { OurServicesService } from '../services/our-services.service';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class HomeComponent implements OnInit {
-  clinics = ['clinic1', 'clinic2', 'clinic3', 'clinic4'];
-
   newsList = [
     {
       title: 'news title 1',
@@ -53,10 +52,5 @@ export class HomeComponent implements OnInit {
     this.services = this.ourServices.services;
   }
 
-  ngOnInit(): void {
-    this.newsService.GetNewssList().subscribe((_) => console.log('list', _));
-    this.newsService
-      .getNewsItemById('a9VWqVlzpx08aAJRMjDk')
-      .subscribe((_) => console.log('item', _));
-  }
+  ngOnInit(): void {}
 }

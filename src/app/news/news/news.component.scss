@@ -1,0 +1,10 @@
+.news {
+  &-image {
+    position: relative;
+    &-actions {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+    }
+  }
+}

@@ -1,10 +1,10 @@
-<div class="read-more vertical-center position-absolute">
+<div class="read-more styleClass vertical-center position-absolute">
   <a
     pButton
     pRipple
     type="button"
-    label="Read More"
+    [label]="label"
     class="p-button-outlined btnClass p-button-rounded btn p-button-secondary m-3"
-    href="/{{ route }}"
+    routerLink="/{{ route }}"
   ></a>
 </div>
