@@ -4,14 +4,12 @@
 
 export const environment = {
   firebase: {
-    projectId: 'physio-on-f0660',
-    appId: '1:434036277738:web:44ef3018f5d59cdd173293',
-    storageBucket: 'physio-on-f0660.appspot.com',
-    locationId: 'australia-southeast1',
-    apiKey: 'AIzaSyDIxBrUEVvTb8OIaBS1RlnjeFR4E3RUNIc',
-    authDomain: 'physio-on-f0660.firebaseapp.com',
-    messagingSenderId: '434036277738',
-    measurementId: 'G-H9PG7KDLGG',
+    apiKey: "AIzaSyDlXPQ8vP-dJHeWacRF0kuX5gE9o-CmrRk",
+  authDomain: "physio-on-21cfb.firebaseapp.com",
+  projectId: "physio-on-21cfb",
+  storageBucket: "physio-on-21cfb.appspot.com",
+  messagingSenderId: "695037479882",
+  appId: "1:695037479882:web:42f7aa9a9c281317261d33"
   },
   production: false
 };

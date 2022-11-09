@@ -1,6 +1,7 @@
 {
   "projects": {
-    "default": "physio-on-f0660"
+    "default": "physio-on-21cfb",
+    "physio-on-hosting": "physio-on-21cfb"
   },
   "targets": {
     "physio-on-f0660": {
@@ -10,5 +11,6 @@
         ]
       }
     }
-  }
+  },
+  "etags": {}
 }
