@@ -3,7 +3,12 @@
   width: 100%;
   right: 0;
   bottom: 0;
-  background: linear-gradient(0deg, white, rgba(255, 255, 255, 0.692));
+  background: linear-gradient(
+    0deg,
+    white 50%,
+    rgb(255 255 255 / 73%),
+    transparent
+  );
   justify-content: end;
   .btn {
     color: var(--main-intro-color);

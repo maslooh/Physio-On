@@ -15,4 +15,12 @@
       }
     }
   }
+
+  &-paginator {
+    background: transparent !important;
+    .p-dropdown {
+      @extend .news-paginator;
+      border: none;
+    }
+  }
 }

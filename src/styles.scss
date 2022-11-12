@@ -39,6 +39,10 @@ body {
   background-color: var(--secondary-background);
 }
 
+.section {
+  min-height: 50vh;
+}
+
 @media (max-width: 768px) {
   .section {
     padding: 1rem 0px !important;
@@ -61,5 +65,17 @@ body {
     width: 100% !important;
     height: 100% !important;
     max-height: 100% !important;
+  }
+}
+
+.news,
+.services {
+  &-card {
+    border: none;
+    border-radius: 0;
+    background: none;
+    &-title {
+      font-weight: 500;
+    }
   }
 }

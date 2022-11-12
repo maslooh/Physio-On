@@ -109,16 +109,4 @@
       }
     }
   }
-
-  .news,
-  .services {
-    &-card {
-      border: none;
-      border-radius: 0;
-      background: none;
-      &-title {
-        font-weight: 500;
-      }
-    }
-  }
 }

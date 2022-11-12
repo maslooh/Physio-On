@@ -1,7 +1,8 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SignInComponent } from './core/sign-in/sign-in.component';
 import { HomeComponent } from './home/home.component';
+import { NewsHomeComponent } from './news/home/news.home.component';
 import { NewsItemComponent } from './news/news-item/news-item.component';
 import { NewsComponent } from './news/news/news.component';
 import { ServiceItemComponent } from './our-services/service-item/service-item.component';
@@ -25,8 +26,18 @@ const routes: Routes = [
     component: SignInComponent,
   },
   {
-    path: 'news/:id',
-    component: NewsItemComponent,
+    path: 'news',
+    component: NewsHomeComponent,
+    children: [
+      {
+        path: 'list',
+        component: NewsComponent,
+      },
+      {
+        path: ':id',
+        component: NewsItemComponent,
+      },
+    ],
   },
 ];
 

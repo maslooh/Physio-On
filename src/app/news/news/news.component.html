@@ -1,40 +1,60 @@
 <div class="p-5 font-300 section news" id="news">
-  <h1 class="card-title section-title my-4 ps-3">NEWS & ARTICLES</h1>
-  <div *ngFor="let news of newsList; odd as odd" class="card news-card mb-4">
-    <div class="row g-0">
-      <div *ngIf="odd || window.innerWidth <= 768" class="col-md-5 news-image">
-        <img src="assets/news.jpg" class="img-fluid" alt="..." />
-        <ng-container *ngTemplateOutlet="actions"></ng-container>
-      </div>
-      <div class="col-md-7 position-relative">
-        <div class="card-body">
-          <h3 class="card-title news-card-title">
-            {{ news.title | titlecase }}
-          </h3>
-          <div class="text-muted">
-            {{ news.lastModified.toDate() | date }}
+  <h1 *ngIf="hasMoreNewsBtn" class="card-title section-title my-4 ps-3">
+    NEWS & ARTICLES
+  </h1>
+  <div *ngIf="newsList.length > 0; else noData">
+    <div
+      *ngFor="let news of newsList | slice: paginateStart:paginateEnd; odd as odd"
+      class="card news-card mb-4"
+    >
+      <div class="row g-0">
+        <div
+          *ngIf="odd || window.innerWidth <= 768"
+          class="col-md-5 news-image"
+        >
+          <img src="assets/news.jpg" class="img-fluid" alt="..." />
+          <ng-container *ngTemplateOutlet="actions"></ng-container>
+        </div>
+        <div class="col-md-7 position-relative">
+          <div class="card-body">
+            <h3 class="card-title news-card-title">
+              {{ news.title | titlecase }}
+            </h3>
+            <div class="text-muted">
+              {{ news.lastModified.toDate() | date }}
+            </div>
+            <p class="card-text">
+              {{ news.content }}
+            </p>
+            <app-read-more route="news/{{ news.id }}"></app-read-more>
           </div>
-          <p class="card-text">
-            {{ news.content }}
-          </p>
-          <app-read-more route="news/{{news.id}}"></app-read-more>
+        </div>
+        <div *ngIf="!odd && window.innerWidth > 768" class="col-md-5">
+          <img src="assets/news.jpg" class="img-fluid" alt="..." />
+          <ng-container *ngTemplateOutlet="actions"></ng-container>
         </div>
       </div>
-      <div *ngIf="!odd && window.innerWidth > 768" class="col-md-5">
-        <img src="assets/news.jpg" class="img-fluid" alt="..." />
-        <ng-container *ngTemplateOutlet="actions"></ng-container>
-      </div>
     </div>
-  </div>
-  <div class="vertical-center">
-    <a
-      pButton
-      pRipple
-      type="button"
-      label="More News"
-      *ngIf="hasMoreNewsBtn"
-      class="mt-4 p-button-rounded p-button-secondary p-button-text text-decoration-underline text-dark flex-row"
-    ></a>
+    <div class="vertical-center">
+      <a
+        pButton
+        pRipple
+        type="button"
+        label="More News"
+        *ngIf="hasMoreNewsBtn"
+        routerLink="news/list"
+        class="mt-4 p-button-rounded p-button-secondary p-button-text text-decoration-underline text-dark flex-row"
+      ></a>
+    </div>
+    <p-paginator
+      *ngIf="hasPagination"
+      [rows]="3"
+      styleClass="news-paginator pb-0"
+      [totalRecords]="totalNewsCount"
+      [showPageLinks]="false"
+      [showJumpToPageDropdown]="true"
+      (onPageChange)="onPageChange($event)"
+    ></p-paginator>
   </div>
 </div>
 
@@ -55,3 +75,7 @@
       class="p-button-rounded news-image-actions-item p-button-success text-dark p-button-text"
     ></button></div
 ></ng-template>
+
+<ng-template #noData>
+  <h2 class="text-muted text-center">No news for now.</h2>
+</ng-template>

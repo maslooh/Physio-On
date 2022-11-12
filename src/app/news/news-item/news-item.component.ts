@@ -21,7 +21,6 @@ export class NewsItemComponent implements OnInit {
 
     this.newsService.getNewsItemById(id).subscribe((n) => {
       this.newsItem = n;
-      console.log(n);
     });
   }
 }
