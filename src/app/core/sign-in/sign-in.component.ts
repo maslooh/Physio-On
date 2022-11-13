@@ -29,7 +29,6 @@ export class SignInComponent implements OnInit {
     this.authService
       .signIn(signInValue)
       .then((cred) => {
-        this.authService.isSignedIn = true;
         this.dialogRef.close();
       })
       .catch((err) => (this.signInError = true));

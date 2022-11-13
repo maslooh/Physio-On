@@ -8,6 +8,17 @@
 >
   <div class="card intro text-bg-dark" id="intro">
     <div class="logo-background"></div>
+    <div class="signInBtn">
+      <app-dynamic-dialog
+        [component]="signInComponent"
+        [maximizable]="false"
+        *ngIf="!auth.isLoggedIn(); else logOut"
+        styleClass="signIn-dialog"
+        label="Sign In"
+        class="vertical-center align-items-start px-3"
+        dialogBtnStyleClass="signIn-dialog-btn p-0"
+      ></app-dynamic-dialog>
+    </div>
     <div class="intro-img card-img"></div>
     <div class="intro-logo vertical-center card-img-overlay">
       <img
@@ -81,3 +92,13 @@
   <app-locations></app-locations>
   <app-providers></app-providers>
 </div>
+
+<ng-template #logOut
+  ><button
+    type="button"
+    (click)="auth.signOut()"
+    class="signIn-dialog-btn px-3 py-0"
+    pButton
+    label="Sign Out"
+  ></button>
+</ng-template>

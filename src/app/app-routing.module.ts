@@ -1,11 +1,18 @@
-import { Component, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SignInComponent } from './core/sign-in/sign-in.component';
 import { HomeComponent } from './home/home.component';
+import { AddNewComponent } from './news/add-new/add-new.component';
 import { NewsHomeComponent } from './news/home/news.home.component';
 import { NewsItemComponent } from './news/news-item/news-item.component';
 import { NewsComponent } from './news/news/news.component';
 import { ServiceItemComponent } from './our-services/service-item/service-item.component';
+import {
+  AngularFireAuthGuard,
+  redirectUnauthorizedTo,
+} from '@angular/fire/compat/auth-guard';
+
+const redirectUnauthorizedToHome = () => redirectUnauthorizedTo(['']);
 
 const routes: Routes = [
   {
@@ -32,6 +39,22 @@ const routes: Routes = [
       {
         path: 'list',
         component: NewsComponent,
+      },
+      {
+        path: 'add',
+        component: AddNewComponent,
+        canActivate: [AngularFireAuthGuard],
+        data: {
+          authGuardPipe: redirectUnauthorizedToHome,
+        },
+      },
+      {
+        path: 'update/:id',
+        component: AddNewComponent,
+        canActivate: [AngularFireAuthGuard],
+        data: {
+          authGuardPipe: redirectUnauthorizedToHome,
+        },
       },
       {
         path: ':id',

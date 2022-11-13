@@ -9,11 +9,10 @@
 
   <div class="">
     <div class="mb-3">
-      <label for="email1" class="mb-2 form-label">Email</label>
+      <label for="email1" class="mb-2 fw-bold form-label">Email</label>
       <input
         id="email1"
         formControlName="email"
-        placeholder="Email"
         required
         type="email"
         pInputText
@@ -27,7 +26,7 @@
       </small>
     </div>
     <div class="mb-3">
-      <label for="password1" class="form-label mb-2">Password</label>
+      <label for="password1" class="form-label fw-bold mb-2">Password</label>
       <input
         id="password1"
         formControlName="password"
@@ -35,7 +34,6 @@
         type="password"
         pInputText
         class="form-control succ"
-        placeholder="Password"
       />
       <small class="text-danger" *ngIf="signInError">
         Wrong email or password.

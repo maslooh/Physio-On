@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { News } from 'src/app/models/news';
 import { NewsService } from 'src/app/services/news.service';
-
 @Component({
   selector: 'app-news-item',
   templateUrl: './news-item.component.html',

@@ -1,21 +1,35 @@
 <div class="p-5 font-300 section news" id="news">
   <h1 *ngIf="hasMoreNewsBtn" class="card-title section-title my-4 ps-3">
     NEWS & ARTICLES
+    <a
+      pButton
+      *ngIf="authService.isLoggedIn()"
+      pRipple
+      type="button"
+      icon="pi pi-plus"
+      routerLink="news/add"
+      class="p-button-rounded text-decoration-none p-button-success text-dark p-button-text"
+    ></a>
   </h1>
   <div *ngIf="newsList.length > 0; else noData">
     <div
-      *ngFor="let news of newsList | slice: paginateStart:paginateEnd; odd as odd"
+      *ngFor="
+        let news of newsList | slice: paginateStart:paginateEnd;
+        odd as odd
+      "
       class="card news-card mb-4"
     >
-      <div class="row g-0">
+      <div class="news-card-container row g-0">
         <div
-          *ngIf="odd || window.innerWidth <= 768"
-          class="col-md-5 news-image"
+          *ngIf="news.image && (odd || window.innerWidth <= 768)"
+          class="col-md-5 py-2 {{
+            odd || window.innerWidth <= 768 ? 'left-actions' : ''
+          }} news-card-image vertical-center"
         >
-          <img src="assets/news.jpg" class="img-fluid" alt="..." />
+          <img [src]="news.image" class="img-fluid" alt="..." />
           <ng-container *ngTemplateOutlet="actions"></ng-container>
         </div>
-        <div class="col-md-7 position-relative">
+        <div class="col-md-7 news-card-body position-relative h-100">
           <div class="card-body">
             <h3 class="card-title news-card-title">
               {{ news.title | titlecase }}
@@ -23,14 +37,18 @@
             <div class="text-muted">
               {{ news.lastModified.toDate() | date }}
             </div>
-            <p class="card-text">
-              {{ news.content }}
-            </p>
+            <div
+              class="card-text ql-editor"
+              [innerHtml]="news.content | safeHTML"
+            ></div>
             <app-read-more route="news/{{ news.id }}"></app-read-more>
           </div>
         </div>
-        <div *ngIf="!odd && window.innerWidth > 768" class="col-md-5">
-          <img src="assets/news.jpg" class="img-fluid" alt="..." />
+        <div
+          *ngIf="!odd && window.innerWidth > 768 && news.image"
+          class="col-md-5 py-2 news-card-image vertical-center"
+        >
+          <img [src]="news.image" class="img-fluid" alt="..." />
           <ng-container *ngTemplateOutlet="actions"></ng-container>
         </div>
       </div>
@@ -59,7 +77,7 @@
 </div>
 
 <ng-template #actions>
-  <div *ngIf="authService.isSignedIn" class="news-image-actions">
+  <div *ngIf="authService.isLoggedIn()" class="news-card-image-actions btns">
     <button
       pButton
       pRipple

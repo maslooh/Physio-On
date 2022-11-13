@@ -5,7 +5,20 @@
       'background-image': 'url(assets/newsCover.jpg)'
     }"
   >
-    <div class="news-home-img-title vertical-center">News & Articles</div>
+    <div class="news-home-img-title vertical-center">
+      <h1 class="card-title section-title my-4 ps-3">
+        NEWS & ARTICLES
+        <a
+          pButton
+          *ngIf="authService.isLoggedIn()"
+          pRipple
+          type="button"
+          icon="pi pi-plus"
+          routerLink="add"
+          class="p-button-rounded text-decoration-none p-button-success text-white p-button-text"
+        ></a>
+      </h1>
+    </div>
   </div>
   <router-outlet></router-outlet>
 </div>

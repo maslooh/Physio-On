@@ -16,12 +16,12 @@ export class NewsComponent implements OnInit {
   @Input() hasMoreNewsBtn: boolean = false;
   @Input() hasPagination: boolean = true;
   window = window;
-  newsList: News[];
+  newsList: News[]=[];
   isLoggedIn: boolean = false;
   paginateStart: number = 0; //inclusive
   paginateEnd: number = 3; //exclusive
   totalNewsCount: number;
-
+  
   constructor(
     private newsService: NewsService,
     public authService: AuthService
@@ -35,9 +35,7 @@ export class NewsComponent implements OnInit {
       .getNewsCount()
       .then((count) => (this.totalNewsCount = count.data().count));
   }
-
-  next(lastItem?: News, limit: number = 3) {}
-
+  
   onPageChange(event: any) {
     console.log(event);
 

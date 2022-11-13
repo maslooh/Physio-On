@@ -1,24 +1,15 @@
-<div *ngIf="newsItem" class="p-3 p-md-5 news-content flex-wrap-reverse row secondaryBg">
+<div
+  *ngIf="newsItem"
+  class="p-3 p-md-5 news-content flex-wrap-reverse row secondaryBg"
+>
   <div class="news-content-intro mt-4 mt-md-0 col-12 col-md-6">
     <h3>{{ newsItem.title }}</h3>
     <div class="text-muted">
       {{ newsItem.lastModified.toDate() | date }}
     </div>
-    <p>
-      {{ newsItem.content }}
-    </p>
+    <div class="ql-editor" [innerHtml]="newsItem.content | safeHTML"></div>
   </div>
-  <div class="col-12 col-md-6">
-    <img
-      class="news-content-image"
-      src="assets/{{ newsItem.image }}"
-      alt=""
-    />
-    <!-- <ima
-      class="news-content-image"
-      [ngStyle]="{
-        'background-image': 'url(assets/' + newsItem.image + ')'
-      }"
-    ></div> -->
+  <div class="col-12 col-md-6 vertical-center">
+    <img class="news-content-image" [src]="newsItem.image" alt="..." />
   </div>
 </div>

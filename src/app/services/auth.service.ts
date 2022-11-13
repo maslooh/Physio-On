@@ -1,11 +1,15 @@
 import { Injectable } from '@angular/core';
-import { Auth, signInWithEmailAndPassword } from '@angular/fire/auth';
+import {
+  Auth,
+  signInWithEmailAndPassword,
+  authState,
+} from '@angular/fire/auth';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  isSignedIn: boolean = false;
+  isSignedIn: string;
   constructor(private auth: Auth) {}
 
   signIn(signInValue: any) {
@@ -14,5 +18,13 @@ export class AuthService {
       signInValue.email,
       signInValue.password
     );
+  }
+
+  signOut() {
+    this.auth.signOut();
+  }
+
+  isLoggedIn(): boolean {
+    return !!this.auth.currentUser;
   }
 }

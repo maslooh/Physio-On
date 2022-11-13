@@ -1,0 +1,51 @@
+<div class="p-5 font-300 section vertical-center">
+  <form class="p-5 m-3" [formGroup]="addNewsForm" (ngSubmit)="addNews()">
+    <div class="mb-3">
+      <label for="title" class="mb-2 fw-bold form-label">Title</label>
+      <textarea
+        formControlName="title"
+        id="title"
+        [rows]="3"
+        [cols]="10"
+        pInputTextarea
+        [autoResize]="true"
+        class="form-control"
+      ></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="title" class="mb-2 fw-bold form-label">Content</label>
+      <p-editor
+        formControlName="content"
+        placeholder="Enter content here..."
+        [modules]="config"
+        [style]="{ height: '320px' }"
+      >
+        >
+        <ng-template pTemplate="header"></ng-template>
+      </p-editor>
+    </div>
+    <div class="mb-3">
+      <div class="mb-3">
+        <label for="formFile" class="mb-2 fw-bold form-label">Image</label>
+        <input
+          class="form-control"
+          formControlName="image"
+          type="file"
+          id="formFile"
+          accept="image/*"
+          (change)="onAddingImage($event)"
+        />
+      </div>
+    </div>
+    <button
+      [disabled]="!addNewsForm.valid"
+      pButton
+      pRipple
+      label="Add News"
+      icon="pi pi-plus"
+      class="w-100 p-button-success"
+      type="submit"
+    ></button>
+    <!-- <div class="ql-editor" [innerHtml]="test | safeHTML"></div> -->
+  </form>
+</div>

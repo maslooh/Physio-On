@@ -1,4 +1,9 @@
 .home {
+  .signInBtn {
+    position: absolute;
+    z-index: 1000;
+    bottom: 15px;
+  }
   .logo-background {
     background-color: var(--service-color);
     position: absolute;

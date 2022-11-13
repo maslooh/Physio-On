@@ -16,6 +16,10 @@ import { DynamicDialogComponent } from './dynamic-dialog/dynamic-dialog.componen
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { EditorModule } from 'primeng/editor';
+import { SafeHTMLPipe } from './safe-html.pipe';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 
 @NgModule({
   declarations: [
@@ -26,6 +30,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReadMoreComponent,
     SignInComponent,
     DynamicDialogComponent,
+    SafeHTMLPipe,
   ],
   imports: [
     CommonModule,
@@ -39,6 +44,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
+    InputTextareaModule,
+    EditorModule,
+    AngularFireStorageModule,
   ],
   exports: [
     CommonModule,
@@ -56,6 +64,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
+    InputTextareaModule,
+    EditorModule,
+    SafeHTMLPipe,
+    AngularFireStorageModule,
+    DynamicDialogComponent,
   ],
 })
 export class CoreModule {}
