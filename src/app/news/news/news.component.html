@@ -11,25 +11,25 @@
       class="p-button-rounded text-decoration-none p-button-success text-dark p-button-text"
     ></a>
   </h1>
-  <div *ngIf="newsList.length > 0; else noData">
+  <div class="vertical-center" *ngIf="newsList.length > 0; else noData">
     <div
       *ngFor="
         let news of newsList | slice: paginateStart:paginateEnd;
         odd as odd
       "
-      class="card news-card mb-4"
+      class="card news-card col-12 col-md-10 mb-4"
     >
       <div class="news-card-container row g-0">
         <div
           *ngIf="news.image && (odd || window.innerWidth <= 768)"
-          class="col-md-5 py-2 {{
+          class="col-md-4 py-2 {{
             odd || window.innerWidth <= 768 ? 'left-actions' : ''
           }} news-card-image vertical-center"
         >
           <img [src]="news.image" class="img-fluid" alt="..." />
           <ng-container *ngTemplateOutlet="actions"></ng-container>
         </div>
-        <div class="col-md-7 news-card-body position-relative h-100">
+        <div class="col-md-8 news-card-body position-relative h-100">
           <div class="card-body">
             <h3 class="card-title news-card-title">
               {{ news.title | titlecase }}
@@ -46,7 +46,7 @@
         </div>
         <div
           *ngIf="!odd && window.innerWidth > 768 && news.image"
-          class="col-md-5 py-2 news-card-image vertical-center"
+          class="col-md-4 py-2 news-card-image vertical-center"
         >
           <img [src]="news.image" class="img-fluid" alt="..." />
           <ng-container *ngTemplateOutlet="actions"></ng-container>

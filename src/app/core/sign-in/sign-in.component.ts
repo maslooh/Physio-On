@@ -20,6 +20,7 @@ export class SignInComponent implements OnInit {
     this.signInForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
+      rememberMe:[false]
     });
   }
 

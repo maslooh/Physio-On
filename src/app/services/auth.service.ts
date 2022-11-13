@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import {
   Auth,
   signInWithEmailAndPassword,
-  authState,
+  browserLocalPersistence,
+  browserSessionPersistence,
 } from '@angular/fire/auth';
 
 @Injectable({
@@ -13,6 +14,9 @@ export class AuthService {
   constructor(private auth: Auth) {}
 
   signIn(signInValue: any) {
+    if (signInValue.rememberMe)
+      this.auth.setPersistence(browserLocalPersistence);
+    else this.auth.setPersistence(browserSessionPersistence);
     return signInWithEmailAndPassword(
       this.auth,
       signInValue.email,
