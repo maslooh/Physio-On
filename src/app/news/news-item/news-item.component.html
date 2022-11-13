@@ -2,14 +2,18 @@
   *ngIf="newsItem"
   class="p-3 p-md-5 news-content flex-wrap-reverse row secondaryBg"
 >
-  <div class="news-content-intro mt-4 mt-md-0 col-12 col-md-6">
-    <h3>{{ newsItem.title }}</h3>
+  <div
+    class="news-content-intro mt-4 mt-md-0 col-12 {{
+      newsItem ? 'col-md-6' : ''
+    }}"
+  >
+    <h3>{{ newsItem.title | titlecase }}</h3>
     <div class="text-muted">
       {{ newsItem.lastModified.toDate() | date }}
     </div>
     <div class="ql-editor" [innerHtml]="newsItem.content | safeHTML"></div>
   </div>
-  <div class="col-12 col-md-6 vertical-center">
+  <div *ngIf="newsItem.image" class="col-12 col-md-6 vertical-center">
     <img class="news-content-image" [src]="newsItem.image" alt="..." />
   </div>
 </div>

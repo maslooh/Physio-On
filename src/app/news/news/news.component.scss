@@ -16,7 +16,7 @@
         }
       }
       .img-fluid {
-        height: 40vh;
+        height: 50vh;
       }
     }
     .left-actions {
@@ -26,10 +26,18 @@
       }
     }
     .card-body {
-      height: 40vh;
+      height: 50vh;
       overflow-y: hidden;
       .card-text {
         overflow-y: hidden;
+      }
+    }
+    @media (max-width: 768px) {
+      .img-fluid {
+        height: 40vh;
+      }
+      .card-body {
+        height: 35vh;
       }
     }
   }

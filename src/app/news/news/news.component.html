@@ -12,47 +12,7 @@
     ></a>
   </h1>
   <div class="vertical-center" *ngIf="newsList.length > 0; else noData">
-    <div
-      *ngFor="
-        let news of newsList | slice: paginateStart:paginateEnd;
-        odd as odd
-      "
-      class="card news-card col-12 col-md-10 mb-4"
-    >
-      <div class="news-card-container row g-0">
-        <div
-          *ngIf="news.image && (odd || window.innerWidth <= 768)"
-          class="col-md-4 py-2 {{
-            odd || window.innerWidth <= 768 ? 'left-actions' : ''
-          }} news-card-image vertical-center"
-        >
-          <img [src]="news.image" class="img-fluid" alt="..." />
-          <ng-container *ngTemplateOutlet="actions"></ng-container>
-        </div>
-        <div class="col-md-8 news-card-body position-relative h-100">
-          <div class="card-body">
-            <h3 class="card-title news-card-title">
-              {{ news.title | titlecase }}
-            </h3>
-            <div class="text-muted">
-              {{ news.lastModified.toDate() | date }}
-            </div>
-            <div
-              class="card-text ql-editor"
-              [innerHtml]="news.content | safeHTML"
-            ></div>
-            <app-read-more route="news/{{ news.id }}"></app-read-more>
-          </div>
-        </div>
-        <div
-          *ngIf="!odd && window.innerWidth > 768 && news.image"
-          class="col-md-4 py-2 news-card-image vertical-center"
-        >
-          <img [src]="news.image" class="img-fluid" alt="..." />
-          <ng-container *ngTemplateOutlet="actions"></ng-container>
-        </div>
-      </div>
-    </div>
+    <ng-container *ngTemplateOutlet="newsCard"></ng-container>
     <div class="vertical-center">
       <a
         pButton
@@ -97,3 +57,53 @@
 <ng-template #noData>
   <h2 class="text-muted text-center">No news for now.</h2>
 </ng-template>
+
+<ng-template #newsCard>
+  <div
+      *ngFor="
+        let news of newsList | slice: paginateStart:paginateEnd;
+        odd as odd
+      "
+      class="card news-card col-12 col-md-11 mx-4 mb-4"
+    >
+      <div class="news-card-container row g-0">
+        <div
+          *ngIf="news.image && (odd || window.innerWidth <= 768)"
+          class="col-md-5 {{
+            odd || window.innerWidth <= 768 ? 'left-actions' : ''
+          }} news-card-image vertical-center"
+        >
+          <img [src]="news.image" class="img-fluid" alt="..." />
+          <ng-container *ngTemplateOutlet="actions"></ng-container>
+        </div>
+        <div
+          class="{{
+            news.image ? 'col-md-7' : 'col-12'
+          }} news-card-body position-relative h-100"
+        >
+          <div class="card-body">
+            <h3 class="card-title news-card-title">
+              {{ news.title | titlecase }}
+            </h3>
+            <div class="text-muted">
+              {{ news.lastModified.toDate() | date }}
+            </div>
+            <div
+              class="card-text ql-editor"
+              [innerHtml]="news.content | safeHTML"
+            ></div>
+            <app-read-more route="news/{{ news.id }}"></app-read-more>
+          </div>
+        </div>
+        <div
+          *ngIf="!odd && window.innerWidth > 768 && news.image"
+          class="col-md-5 news-card-image vertical-center"
+        >
+          <img [src]="news.image" class="img-fluid" alt="..." />
+          <ng-container *ngTemplateOutlet="actions"></ng-container>
+        </div>
+      </div>
+    </div>
+</ng-template>
+
+
