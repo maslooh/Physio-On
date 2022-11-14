@@ -1,10 +1,8 @@
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
-import { ReCaptchaEnterpriseProvider } from 'firebase/app-check';
-import { limit } from 'firebase/firestore';
-import { last } from 'rxjs';
 import { News } from 'src/app/models/news';
 import { AuthService } from 'src/app/services/auth.service';
 import { NewsService } from 'src/app/services/news.service';
+import { PageLoaderService } from 'src/app/services/page-loader.service';
 
 @Component({
   selector: 'app-news',
@@ -15,30 +13,33 @@ import { NewsService } from 'src/app/services/news.service';
 export class NewsComponent implements OnInit {
   @Input() hasMoreNewsBtn: boolean = false;
   @Input() hasPagination: boolean = true;
+  isLoading: boolean = true;
   window = window;
-  newsList: News[]=[];
+  newsList: News[] = [];
   isLoggedIn: boolean = false;
   paginateStart: number = 0; //inclusive
   paginateEnd: number = 3; //exclusive
   totalNewsCount: number;
-  
+
   constructor(
     private newsService: NewsService,
-    public authService: AuthService
+    public authService: AuthService,
+    public pageLoader: PageLoaderService
   ) {}
 
   ngOnInit(): void {
+    this.pageLoader.show();
     this.newsService.GetNewsList().subscribe((res) => {
+      this.isLoading = false;
+      this.pageLoader.hide();
       this.newsList = res;
     });
     this.newsService
       .getNewsCount()
       .then((count) => (this.totalNewsCount = count.data().count));
   }
-  
-  onPageChange(event: any) {
-    console.log(event);
 
+  onPageChange(event: any) {
     if (event.first >= this.newsList.length) {
       let lastItem = this.newsList[this.newsList.length - 1];
       let limit = event.first - this.newsList.length + event.rows;

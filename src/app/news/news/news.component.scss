@@ -1,32 +1,26 @@
 .news {
   &-card {
-    &-image {
-      position: relative;
-      &-actions {
-        position: absolute;
-        top: 0px;
-        right: 0px;
-        background-color: var(--service-color);
-        &-item {
-          &:hover,
-          :focus,
-          :active {
-            background-color: transparent !important;
-          }
+    position: relative;
+    &-actions {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      background-color: var(--service-color);
+      &-item {
+        &:hover,
+        :focus,
+        :active {
+          background-color: transparent !important;
         }
       }
-      .img-fluid {
-        height: 50vh;
-      }
     }
-    .left-actions {
-      .btns {
-        right: unset !important;
-        left: 0px;
+    &-image {
+      .img-fluid {
+        height: 45vh;
       }
     }
     .card-body {
-      height: 50vh;
+      height: 45vh;
       overflow-y: hidden;
       .card-text {
         overflow-y: hidden;
@@ -34,10 +28,10 @@
     }
     @media (max-width: 768px) {
       .img-fluid {
-        height: 40vh;
+        height: 25vh;
       }
       .card-body {
-        height: 35vh;
+        height: 30vh;
       }
     }
   }
@@ -47,6 +41,17 @@
     .p-dropdown {
       @extend .news-paginator;
       border: none;
+    }
+  }
+
+  .skeleton {
+    @media (max-width: 768px) {
+      .news-card-image {
+        height: 25vh;
+      }
+      .card-body {
+        height: fit-content !important;
+      }
     }
   }
 }

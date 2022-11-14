@@ -20,6 +20,9 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 import { EditorModule } from 'primeng/editor';
 import { SafeHTMLPipe } from './safe-html.pipe';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { SkeletonModule } from 'primeng/skeleton';
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
+import { PageLoaderComponent } from './page-loader/page-loader.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +34,7 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
     SignInComponent,
     DynamicDialogComponent,
     SafeHTMLPipe,
+    PageLoaderComponent,
   ],
   imports: [
     CommonModule,
@@ -47,6 +51,8 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
     InputTextareaModule,
     EditorModule,
     AngularFireStorageModule,
+    SkeletonModule,
+    ProgressSpinnerModule,
   ],
   exports: [
     CommonModule,
@@ -69,6 +75,9 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
     SafeHTMLPipe,
     AngularFireStorageModule,
     DynamicDialogComponent,
+    SkeletonModule,
+    ProgressSpinnerModule,
+    PageLoaderComponent
   ],
 })
 export class CoreModule {}

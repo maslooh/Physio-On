@@ -12,6 +12,8 @@ body {
   --service-hover-color: #0000009a;
   --logo-dark-green: #2c7028;
   --logo-light-green: #3fa03a;
+  --success: #22c55e;
+  --success-input: #22c55e66;
   overflow-x: hidden !important;
 }
 
@@ -91,4 +93,37 @@ strong {
   img {
     width: 200px !important;
   }
+}
+
+.stop-scrolling {
+  height: 100%;
+  overflow: hidden;
+}
+
+.p-progress-spinner-circle {
+  stroke: var(--active-link-color) !important;
+}
+
+.form-control:focus,
+  .p-checkbox:not(.p-checkbox-disabled)
+  .p-checkbox-box.p-focus,
+.p-inputtext:enabled:focus {
+  box-shadow: 0 0 0 0.2rem var(--success-input);
+  border-color: var(--success);
+}
+
+.p-inputtext:enabled:hover,
+.p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box:hover {
+  border-color: var(--success);
+}
+
+.p-checkbox .p-checkbox-box.p-highlight {
+  border-color: var(--success);
+  background: var(--success);
+}
+
+.p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box.p-highlight:hover {
+  border-color: var(--success-input);
+  background: var(--success-input);
+  color: #ffffff;
 }

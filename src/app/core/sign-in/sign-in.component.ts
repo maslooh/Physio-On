@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DynamicDialogRef } from 'primeng/dynamicdialog';
 import { AuthService } from 'src/app/services/auth.service';
+import { PageLoaderService } from 'src/app/services/page-loader.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -15,23 +16,29 @@ export class SignInComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
-    private dialogRef: DynamicDialogRef
+    private dialogRef: DynamicDialogRef,
+    private pageLoader: PageLoaderService
   ) {
     this.signInForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
-      rememberMe:[false]
+      rememberMe: [false],
     });
   }
 
   ngOnInit(): void {}
 
   signIn(signInValue: any) {
+    this.pageLoader.show();
     this.authService
       .signIn(signInValue)
       .then((cred) => {
+        this.pageLoader.hide();
         this.dialogRef.close();
       })
-      .catch((err) => (this.signInError = true));
+      .catch((err) => {
+        this.signInError = true;
+        this.pageLoader.hide();
+      });
   }
 }

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { News } from 'src/app/models/news';
 import { NewsService } from 'src/app/services/news.service';
+import { PageLoaderService } from 'src/app/services/page-loader.service';
 
 @Component({
   selector: 'app-add-new',
@@ -35,7 +36,11 @@ export class AddNewComponent implements OnInit {
   };
 
   test: HtmlParser;
-  constructor(private fb: FormBuilder, private newsService: NewsService) {
+  constructor(
+    private fb: FormBuilder,
+    private pageLoader: PageLoaderService,
+    private newsService: NewsService
+  ) {
     this.addNewsForm = this.fb.group({
       title: ['', [Validators.required]],
       content: ['', Validators.required],
@@ -50,6 +55,7 @@ export class AddNewComponent implements OnInit {
   }
 
   addNews() {
+    this.pageLoader.show();
     let newItem = {
       ...this.addNewsForm.value,
     } as News;
@@ -61,9 +67,12 @@ export class AddNewComponent implements OnInit {
         } as News;
         this.newsService.getURL(path).subscribe((res) => {
           newItem.image = res;
-          this.newsService.addNewsItem(newItem).then((_) => console.log(_));
+          this.newsService
+            .addNewsItem(newItem)
+            .then((_) => this.pageLoader.hide());
         });
       });
-    else this.newsService.addNewsItem(newItem).then((_) => console.log(_));
+    else
+      this.newsService.addNewsItem(newItem).then((_) => this.pageLoader.hide());
   }
 }

@@ -25,7 +25,7 @@ export class AuthService {
   }
 
   signOut() {
-    this.auth.signOut();
+    return this.auth.signOut();
   }
 
   isLoggedIn(): boolean {

@@ -70,9 +70,9 @@
         <div
           class="services-content overflow-hidden card-body position-relative bg-white"
         >
-          <h4 class="card-title services-card-title">
+          <h5 class="card-title services-card-title">
             {{ service.title | titlecase }}
-          </h4>
+          </h5>
           <p class="services-content-text card-text">
             {{ service.content.intro }}
           </p>
@@ -96,7 +96,7 @@
 <ng-template #logOut
   ><button
     type="button"
-    (click)="auth.signOut()"
+    (click)="signOut()"
     class="signIn-dialog-btn px-3 py-0"
     pButton
     label="Sign Out"
