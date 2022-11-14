@@ -50,6 +50,9 @@ body {
 @media (max-width: 768px) {
   .section {
     padding: 1rem 1rem !important;
+    &.locations {
+      padding: 1rem 0px !important;
+    }
   }
 }
 
@@ -105,8 +108,7 @@ strong {
 }
 
 .form-control:focus,
-  .p-checkbox:not(.p-checkbox-disabled)
-  .p-checkbox-box.p-focus,
+.p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box.p-focus,
 .p-inputtext:enabled:focus {
   box-shadow: 0 0 0 0.2rem var(--success-input);
   border-color: var(--success);
