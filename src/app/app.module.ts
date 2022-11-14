@@ -8,6 +8,9 @@ import { environment } from '../environments/environment';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { MessageService } from 'primeng/api';
+import { DialogService } from 'primeng/dynamicdialog';
+import { ConfirmationService } from 'primeng/api';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,7 +23,7 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
   ],
-  providers: [],
+  providers: [MessageService, DialogService, ConfirmationService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

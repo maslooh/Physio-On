@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
-import { AuthService } from 'src/app/services/auth.service';
 
 enum navItems {
   Home = 'intro',
@@ -21,7 +20,7 @@ export class HeaderComponent implements OnInit {
   navItems = navItems;
   currentRoute: string = '';
 
-  constructor(private auth: AuthService, private router: Router) {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
     this.window.addEventListener('scroll', () => {});

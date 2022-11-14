@@ -1,5 +1,5 @@
 <div class="p-5 font-300 section vertical-center">
-  <form class="p-md-5 p-4 m-3" [formGroup]="addNewsForm" (ngSubmit)="addNews()">
+  <form class="p-md-5 p-4 m-3" [formGroup]="addNewsForm" (ngSubmit)="isEdit?updateNews():addNews()">
     <div class="mb-3">
       <label for="title" class="mb-2 fw-bold form-label">Title</label>
       <textarea
@@ -41,7 +41,7 @@
       [disabled]="!addNewsForm.valid"
       pButton
       pRipple
-      label="Add News"
+      label="{{isEdit?'Save':'Add News'}}"
       icon="pi pi-plus"
       class="w-100 p-button-success"
       type="submit"

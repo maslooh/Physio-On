@@ -8,6 +8,7 @@ import { OurServicesService } from '../services/our-services.service';
 import { SignInComponent } from '../core/sign-in/sign-in.component';
 import { AuthService } from '../services/auth.service';
 import { PageLoaderService } from '../services/page-loader.service';
+import { Loading } from '../enums/loading';
 
 @Component({
   selector: 'app-home',
@@ -27,16 +28,19 @@ export class HomeComponent implements OnInit, AfterViewInit {
   ) {
     this.services = this.ourServices.services;
   }
-  ngAfterViewInit(): void {}
 
   ngOnInit(): void {
-    this.pageLoader.show();
+    this.pageLoader.show(Loading.homePage);
+  }
+
+  ngAfterViewInit(): void {
+    this.pageLoader.hide(Loading.homePage);
   }
 
   signOut() {
-    this.pageLoader.show();
+    this.pageLoader.show(Loading.signOut);
     this.auth.signOut().then((_) => {
-      this.pageLoader.hide();
+      this.pageLoader.hide(Loading.signOut);
     });
   }
 }

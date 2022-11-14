@@ -5,6 +5,7 @@ export interface News {
   id: string;
   title: string;
   image: string;
+  imageRef:string
   createdOn: Timestamp;
   lastModified: Timestamp;
   content: string;

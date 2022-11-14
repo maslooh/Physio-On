@@ -5,7 +5,6 @@ import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
   selector: 'app-dynamic-dialog',
   templateUrl: './dynamic-dialog.component.html',
   styleUrls: ['./dynamic-dialog.component.scss'],
-  providers: [DialogService],
 })
 export class DynamicDialogComponent implements OnInit, OnDestroy {
   @Input() component: any;

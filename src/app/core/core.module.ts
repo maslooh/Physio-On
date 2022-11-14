@@ -21,8 +21,10 @@ import { EditorModule } from 'primeng/editor';
 import { SafeHTMLPipe } from './safe-html.pipe';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { SkeletonModule } from 'primeng/skeleton';
-import {ProgressSpinnerModule} from 'primeng/progressspinner';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { PageLoaderComponent } from './page-loader/page-loader.component';
+import { ToastModule } from 'primeng/toast';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 
 @NgModule({
   declarations: [
@@ -53,6 +55,8 @@ import { PageLoaderComponent } from './page-loader/page-loader.component';
     AngularFireStorageModule,
     SkeletonModule,
     ProgressSpinnerModule,
+    ToastModule,
+    ConfirmDialogModule,
   ],
   exports: [
     CommonModule,
@@ -77,7 +81,9 @@ import { PageLoaderComponent } from './page-loader/page-loader.component';
     DynamicDialogComponent,
     SkeletonModule,
     ProgressSpinnerModule,
-    PageLoaderComponent
+    PageLoaderComponent,
+    ToastModule,
+    ConfirmDialogModule,
   ],
 })
 export class CoreModule {}

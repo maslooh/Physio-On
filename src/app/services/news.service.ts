@@ -8,6 +8,7 @@ import {
   Firestore,
   Timestamp,
 } from '@angular/fire/firestore';
+import { UploadMetadata } from '@angular/fire/compat/storage/interfaces';
 
 @Injectable({
   providedIn: 'root',
@@ -55,15 +56,23 @@ export class NewsService {
 
   async uploadImage(image: File) {
     let ImageFirebasePath = new Date().getSeconds() + image.name;
+    let metaData = { imageRef: ImageFirebasePath } as UploadMetadata;
     await this.storage
-      .upload(ImageFirebasePath, image)
+      .upload(ImageFirebasePath, image, metaData)
       .catch((err) => console.log(err));
     return ImageFirebasePath;
   }
 
-  getURL(imagePath:string) {
-    return this.storage.ref(imagePath).getDownloadURL()
+  getURL(imagePath: string) {
+    return this.storage.ref(imagePath).getDownloadURL();
   }
 
+  deleteNewsImage(imageRef: string) {
+    return this.storage.ref(imageRef).delete();
+  }
 
+  deleteNewsItem(newsItem: News) {
+    let newsItemDoc = this.afs.doc<News>(`news/${newsItem.id}`);
+    return newsItemDoc.delete();
+  }
 }

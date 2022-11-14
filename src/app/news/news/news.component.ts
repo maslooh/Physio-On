@@ -1,8 +1,12 @@
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { MessageService } from 'primeng/api';
+import { Loading } from 'src/app/enums/loading';
 import { News } from 'src/app/models/news';
 import { AuthService } from 'src/app/services/auth.service';
 import { NewsService } from 'src/app/services/news.service';
 import { PageLoaderService } from 'src/app/services/page-loader.service';
+import { ConfirmationService } from 'primeng/api';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-news',
@@ -24,14 +28,18 @@ export class NewsComponent implements OnInit {
   constructor(
     private newsService: NewsService,
     public authService: AuthService,
-    public pageLoader: PageLoaderService
+    public pageLoader: PageLoaderService,
+    private messageService: MessageService,
+    private dialogService: ConfirmationService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
-    this.pageLoader.show();
+    this.pageLoader.show(Loading.newsList);
     this.newsService.GetNewsList().subscribe((res) => {
       this.isLoading = false;
-      this.pageLoader.hide();
+      if (this.pageLoader)
+        this.pageLoader.hide( Loading.newsList);
       this.newsList = res;
     });
     this.newsService
@@ -53,5 +61,63 @@ export class NewsComponent implements OnInit {
       this.paginateStart = event.first;
       this.paginateEnd = event.first + event.rows;
     }
+  }
+
+  showDialog(newsItem: News) {
+    this.dialogService.confirm({
+      message: 'Are you sure you want to delete this item?',
+      header: 'Delete',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        this.deleteNews(newsItem);
+      },
+    });
+  }
+
+  deleteNews(newsItem: News) {
+    this.pageLoader.show(Loading.deleteNews);
+    this.newsService
+      .deleteNewsItem(newsItem)
+      .then((_) => {
+        if (newsItem.image)
+          this.newsService.deleteNewsImage(newsItem.imageRef).subscribe({
+            next: (_) => {
+              this.messageService.add({
+                severity: 'success',
+                summary: 'Success',
+                detail: 'Item deleted',
+              });
+              this.pageLoader.hide(Loading.deleteNews);
+            },
+            error: (err) => {
+              this.messageService.add({
+                severity: 'error',
+                summary: 'Error',
+                detail: err,
+              });
+              this.pageLoader.hide(Loading.deleteNews);
+            },
+          });
+        else {
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Success',
+            detail: 'Item deleted',
+          });
+          this.pageLoader.hide(Loading.deleteNews);
+        }
+      })
+      .catch((err) => {
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Error',
+          detail: err,
+        });
+        this.pageLoader.hide(Loading.deleteNews);
+      });
+  }
+
+  navigateToEdit(id: string) {
+    this.router.navigate([`news/update/${id}`]);
   }
 }
