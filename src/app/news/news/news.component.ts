@@ -38,8 +38,7 @@ export class NewsComponent implements OnInit {
     this.pageLoader.show(Loading.newsList);
     this.newsService.GetNewsList().subscribe((res) => {
       this.isLoading = false;
-      if (this.pageLoader)
-        this.pageLoader.hide( Loading.newsList);
+      this.pageLoader.hide(Loading.newsList);
       this.newsList = res;
     });
     this.newsService

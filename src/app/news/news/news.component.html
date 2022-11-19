@@ -1,4 +1,4 @@
-<div class="p-5 font-300 section news" id="news">
+<div class="p-5 font-300 section position-relative news" id="news">
   <h1 *ngIf="hasMoreNewsBtn" class="card-title section-title my-4 ps-3">
     NEWS & ARTICLES
     <a
@@ -11,7 +11,7 @@
       class="p-button-rounded text-decoration-none p-button-success text-dark p-button-text"
     ></a>
   </h1>
-  <div class="vertical-center">
+  <div class="vertical-center {{ newsList.length > 0 ? '' : 'no-data' }}">
     <div
       *ngIf="
         isLoading;
@@ -25,7 +25,7 @@
         pRipple
         type="button"
         label="More News"
-        *ngIf="hasMoreNewsBtn && newsList.length > 3"
+        *ngIf="hasMoreNewsBtn && totalNewsCount > 3"
         routerLink="news/list"
         class="mt-4 p-button-rounded p-button-secondary p-button-text text-decoration-underline text-dark flex-row"
       ></a>
@@ -63,7 +63,7 @@
 ></ng-template>
 
 <ng-template #noData>
-  <h2 class="text-muted text-center mt-5">No news for now.</h2>
+  <h2 class="text-muted text-center">No news for now.</h2>
 </ng-template>
 
 <ng-template #newsCard>
