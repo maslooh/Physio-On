@@ -14,6 +14,6 @@
     <div class="ql-editor" [innerHtml]="newsItem.content | safeHTML"></div>
   </div>
   <div *ngIf="newsItem.image" class="col-12 col-md-6 vertical-center">
-    <img class="news-content-image" [src]="newsItem.image" alt="..." />
+    <img loading="lazy" class="news-content-image" [src]="newsItem.image" alt="..." />
   </div>
 </div>

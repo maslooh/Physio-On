@@ -20,7 +20,7 @@ export class NewsService {
     public storage: AngularFireStorage
   ) {}
 
-  GetNewsList(lastItem: News | null = null, limit: number = 3) {
+  GetNewsList( limit: number = 3,lastItem: News | null = null) {
     const newsCollection = this.afs.collection<News>('news', (ref) =>
       lastItem
         ? ref

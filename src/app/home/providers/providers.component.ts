@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./providers.component.scss'],
 })
 export class ProvidersComponent implements OnInit {
-  providers: string[]=[];
+  providers: string[] = [];
   responsiveOptions;
   constructor() {
     this.responsiveOptions = [

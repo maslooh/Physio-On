@@ -22,8 +22,9 @@ export class NewsComponent implements OnInit {
   newsList: News[] = [];
   isLoggedIn: boolean = false;
   paginateStart: number = 0; //inclusive
-  paginateEnd: number = 3; //exclusive
+  paginateEnd: number = 6; //exclusive
   totalNewsCount: number;
+  responsiveOptions:any[];
 
   constructor(
     private newsService: NewsService,
@@ -32,11 +33,29 @@ export class NewsComponent implements OnInit {
     private messageService: MessageService,
     private dialogService: ConfirmationService,
     private router: Router
-  ) {}
+  ) {
+    this.responsiveOptions = [
+      {
+        breakpoint: '1024px',
+        numVisible: 3,
+        numScroll: 1,
+      },
+      {
+        breakpoint: '768px',
+        numVisible: 2,
+        numScroll: 1,
+      },
+      {
+        breakpoint: '560px',
+        numVisible: 1,
+        numScroll: 1,
+      },
+    ];
+  }
 
   ngOnInit(): void {
     this.pageLoader.show(Loading.newsList);
-    this.newsService.GetNewsList().subscribe((res) => {
+    this.newsService.GetNewsList(6).subscribe((res) => {
       this.isLoading = false;
       this.pageLoader.hide(Loading.newsList);
       this.newsList = res;
@@ -51,7 +70,7 @@ export class NewsComponent implements OnInit {
       let lastItem = this.newsList[this.newsList.length - 1];
       let limit = event.first - this.newsList.length + event.rows;
 
-      this.newsService.GetNewsList(lastItem, limit).subscribe((res) => {
+      this.newsService.GetNewsList(limit, lastItem).subscribe((res) => {
         this.newsList.push(...res);
         this.paginateStart = event.first;
         this.paginateEnd = event.first + event.rows;

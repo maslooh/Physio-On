@@ -86,7 +86,8 @@ export class AddNewComponent implements OnInit {
       this.pageLoader.show(Loading.updateNews);
 
       if (this.image) {
-        this.newsService.deleteNewsImage(this.selectedNewsItem.imageRef);
+        if (this.selectedNewsItem.imageRef)
+          this.newsService.deleteNewsImage(this.selectedNewsItem.imageRef);
         this.newsService.uploadImage(this.image).then((path) => {
           this.selectedNewsItem.imageRef = path;
 
