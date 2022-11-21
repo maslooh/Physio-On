@@ -56,6 +56,12 @@ body {
   }
 }
 
+@media (max-width: 560px) {
+  .section.news {
+    padding: 1rem 0 !important;
+  }
+}
+
 .font-300 {
   font-weight: 300 !important;
 }

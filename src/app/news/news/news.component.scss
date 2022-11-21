@@ -46,10 +46,12 @@
     &-noImg {
       height: 70vh !important;
     }
-
-    &-center {
-      .p-carousel-items-container {
-        justify-content: center;
+    
+    @media (min-width: 560px) {
+      &-center {
+        .p-carousel-items-container {
+          justify-content: center;
+        }
       }
     }
 

@@ -81,7 +81,7 @@
   >
     <div class="news-card-container row g-0">
       <div *ngIf="news.image" class="col-md-5 news-card-image vertical-center">
-        <img [src]="news.image" loading="lazy" class="img-fluid" alt="..." />
+        <img [src]="news.image" class="img-fluid" alt="..." />
       </div>
       <div
         class="{{
@@ -168,7 +168,6 @@
           <div *ngIf="news.image" class="news-card-image vertical-center">
             <img
               [src]="news.image"
-              loading="lazy"
               class="img-fluid"
               alt="..."
             />
