@@ -35,7 +35,7 @@
         type="button"
         label="More News"
         routerLink="news/list"
-        class="mt-4 p-button-rounded p-button-secondary p-button-text text-decoration-underline text-dark flex-row"
+        class="p-button-rounded p-button-secondary p-button-text text-decoration-underline text-dark flex-row"
       ></a>
     </div>
     <p-paginator
@@ -156,7 +156,7 @@
     [numVisible]="3"
     [numScroll]="1"
     class="news-home"
-    [ngClass]="{'news-home-center':newsList.length <= 2}"
+    [ngClass]="{ 'news-home-center': newsList.length <= 2 }"
     [circular]="false"
     [autoplayInterval]="3000"
     [showIndicators]="false"
@@ -166,11 +166,7 @@
       <div class="card news-card mb-4">
         <div class="news-card-container row g-0">
           <div *ngIf="news.image" class="news-card-image vertical-center">
-            <img
-              [src]="news.image"
-              class="img-fluid"
-              alt="..."
-            />
+            <img [src]="news.image" class="img-fluid" alt="..." />
           </div>
           <div class="col-12 news-card-body position-relative h-100">
             <div
