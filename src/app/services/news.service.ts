@@ -8,7 +8,6 @@ import {
   Firestore,
   Timestamp,
 } from '@angular/fire/firestore';
-import { UploadMetadata } from '@angular/fire/compat/storage/interfaces';
 
 @Injectable({
   providedIn: 'root',

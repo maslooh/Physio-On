@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {NavigationEnd, Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
 
 enum navItems {
@@ -19,6 +19,7 @@ export class HeaderComponent implements OnInit {
   window: Window = window;
   navItems = navItems;
   currentRoute: string = '';
+  routeAction: string;
 
   constructor(private router: Router) {}
 
@@ -31,6 +32,9 @@ export class HeaderComponent implements OnInit {
         this.currentRoute = this.currentRoute.startsWith('#')
           ? this.currentRoute.split('#')[1]
           : this.currentRoute;
+        this.routeAction = (_ as NavigationEnd).url.split('/')[2]
+        console.log(this.routeAction);
+        
       });
   }
 

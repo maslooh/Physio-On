@@ -1,5 +1,16 @@
 <div class="p-5 section locations secondaryBg" id="locations">
-  <h1 class="card-title section-title my-4 ps-3">OUR LOCATIONS</h1>
+  <h1 class="card-title section-title my-4 ps-3">
+    OUR LOCATIONS
+    <a
+      pButton
+      *ngIf="authService.isLoggedIn()"
+      pRipple
+      type="button"
+      icon="pi pi-plus"
+      routerLink="locations/add"
+      class="p-button-rounded text-decoration-none p-button-success text-dark p-button-text"
+    ></a>
+  </h1>
   <div class="mb-3 ps-3 font-300">
     <h5 class="font-300">Working Hours</h5>
     <ul class="nav flex-column">
@@ -23,15 +34,36 @@
         }"
       >
         <div
+          *ngIf="authService.isLoggedIn()"
+          class="location-card-actions btns"
+        >
+          <button
+            pButton
+            pRipple
+            type="button"
+            icon="pi pi-pencil"
+            (click)="navigateToEdit(location.id)"
+            class="p-button-rounded location-image-actions-item p-button-success text-dark p-button-text"
+          ></button>
+          <button
+            pButton
+            pRipple
+            type="button"
+            icon="pi pi-trash"
+            (click)="showDialog(location)"
+            class="p-button-rounded location-image-actions-item p-button-success text-dark p-button-text"
+          ></button>
+        </div>
+        <div
           class="location-details font-300 p-2 d-flex flex-column flex-wrap align-content-between"
         >
-          <a href="mailto: {{ location.email }}" class="nav-link p-0"
+          <a *ngIf="location.email" href="mailto: {{ location.email }}" class="nav-link p-0"
             ><i class="fa-solid fa-envelope"></i> {{ location.email }}</a
           >
-          <a href="tel:{{ location.mobile }}" class="nav-link p-0"
+          <a *ngIf="location.mobile" href="tel:{{ location.mobile }}" class="nav-link p-0"
             ><i class="fa-solid fa-mobile"></i> {{ location.mobile }}</a
           >
-          <a href="tel:{{ location.telephone }}" class="nav-link p-0"
+          <a *ngIf="location.telephone" href="tel:{{ location.telephone }}" class="nav-link p-0"
             ><i class="fa-solid fa-phone"></i> {{ location.telephone }}</a
           >
           <a

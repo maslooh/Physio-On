@@ -1,0 +1,115 @@
+<div class="p-5 font-300 section secondaryBg">
+  <div class="container">
+    <h1 class="card-title mt-4 mb-3 section-title">Add Location</h1>
+    <form
+      class="p-md-5 p-4 row"
+      [formGroup]="addLocationForm"
+      (ngSubmit)="isEdit ? updateLocation() : addLocation()"
+    >
+      <div class="mb-3">
+        <label class="mb-2 fw-bold form-label">Address*</label>
+        <input
+          formControlName="address"
+          class="form-control"
+          type="text"
+          pInputText
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label class="mb-2 fw-bold form-label">Location Link</label>
+        <input
+          formControlName="location"
+          class="form-control"
+          type="url"
+          pInputText
+        />
+      </div>
+      <div class="mb-3 col-12 col-md-3">
+        <label class="mb-2 fw-bold form-label">Email</label>
+        <input
+          formControlName="email"
+          type="email"
+          class="form-control"
+          pInputText
+        />
+        <small
+          class="text-danger"
+          *ngIf="addLocationForm.get('email')?.hasError('email')"
+        >
+          Please enter a valid email.
+        </small>
+      </div>
+      <div class="mb-3 col-12 col-md-3 d-flex flex-column">
+        <label class="mb-2 fw-bold form-label">Mobile</label>
+        <input
+          formControlName="mobile"
+          type="text"
+          class="form-control"
+          pInputText
+          [maxLength]="10"
+          [maxLength]="10"
+        />
+        <small
+          class="text-danger"
+          *ngIf="addLocationForm.get('mobile')?.invalid"
+        >
+          Please enter a valid mobile number.
+        </small>
+      </div>
+      <div class="mb-3 col-12 col-md-3">
+        <label class="mb-2 fw-bold form-label">Telephone</label>
+        <input
+          formControlName="telephone"
+          type="text"
+          class="form-control"
+          pInputText
+          [maxlength]="8"
+          [minlength]="8"
+        />
+        <small
+          class="text-danger"
+          *ngIf="addLocationForm.get('telephone')?.invalid"
+        >
+          Please enter a valid telephone number.
+        </small>
+      </div>
+      <div class="mb-3 col-12 col-md-3">
+        <label class="mb-2 fw-bold form-label">Fax</label>
+        <input
+          formControlName="fax"
+          type="text"
+          class="form-control"
+          pInputText
+          [maxlength]="8"
+          [minlength]="8"
+        />
+        <small class="text-danger" *ngIf="addLocationForm.get('fax')?.invalid">
+          Please enter a valid fax number.
+        </small>
+      </div>
+      <div class="mb-3">
+        <div class="mb-3">
+          <label for="formFile" class="mb-2 fw-bold form-label">Image</label>
+          <input
+            class="form-control"
+            formControlName="image"
+            type="file"
+            id="formFile"
+            accept="image/*"
+            (change)="onAddingImage($event)"
+          />
+        </div>
+      </div>
+      <button
+        [disabled]="!addLocationForm.valid"
+        pButton
+        pRipple
+        label="{{ isEdit ? 'Save' : 'Add Location' }}"
+        icon="pi pi-plus"
+        class="w-100 p-button-success"
+        type="submit"
+      ></button>
+    </form>
+  </div>
+</div>

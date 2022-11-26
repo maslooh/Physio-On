@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SignInComponent } from './core/sign-in/sign-in.component';
 import { HomeComponent } from './home/home.component';
 import { AddNewComponent } from './news/add-new/add-new.component';
 import { NewsHomeComponent } from './news/home/news.home.component';
@@ -11,6 +10,7 @@ import {
   AngularFireAuthGuard,
   redirectUnauthorizedTo,
 } from '@angular/fire/compat/auth-guard';
+import { UpdateLocationComponent } from './home/locations/update-location/update-location.component';
 
 const redirectUnauthorizedToHome = () => redirectUnauthorizedTo(['']);
 
@@ -29,8 +29,20 @@ const routes: Routes = [
     component: ServiceItemComponent,
   },
   {
-    path: 'signIn',
-    component: SignInComponent,
+    path: 'locations/add',
+    component: UpdateLocationComponent,
+    canActivate: [AngularFireAuthGuard],
+    data: {
+      authGuardPipe: redirectUnauthorizedToHome,
+    },
+  },
+  {
+    path: 'locations/update/:id',
+    component: UpdateLocationComponent,
+    canActivate: [AngularFireAuthGuard],
+    data: {
+      authGuardPipe: redirectUnauthorizedToHome,
+    },
   },
   {
     path: 'news',

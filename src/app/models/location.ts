@@ -1,4 +1,6 @@
-export interface Location {
+import { Timestamp } from 'firebase/firestore';
+
+export interface ClinicLocation {
   $key: string;
   id: string;
   location: string;
@@ -9,4 +11,5 @@ export interface Location {
   email: string;
   image: string;
   imageRef: string;
+  lastModified: Timestamp;
 }

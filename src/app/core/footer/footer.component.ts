@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Loading } from 'src/app/enums/loading';
 import { LoactionsService } from 'src/app/services/loactions.service';
 import { PageLoaderService } from 'src/app/services/page-loader.service';
 
@@ -18,10 +17,8 @@ export class FooterComponent implements OnInit {
 
   ngOnInit(): void {
     this.year = new Date().getFullYear();
-    if (this.locationsService.locations) {
-      this.pageLoader.show(Loading.locationsList);
+    if (!this.locationsService.locations) {
       this.locationsService.GetLocationsList().subscribe((res) => {
-        this.pageLoader.hide(Loading.locationsList);
         this.locationsService.locations = res;
       });
     }

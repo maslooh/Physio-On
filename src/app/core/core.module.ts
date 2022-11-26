@@ -25,6 +25,7 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { PageLoaderComponent } from './page-loader/page-loader.component';
 import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { InputMaskModule } from 'primeng/inputmask';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
     ProgressSpinnerModule,
     ToastModule,
     ConfirmDialogModule,
+    InputMaskModule
   ],
   exports: [
     CommonModule,
@@ -84,6 +86,7 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
     PageLoaderComponent,
     ToastModule,
     ConfirmDialogModule,
+    InputMaskModule
   ],
 })
 export class CoreModule {}
