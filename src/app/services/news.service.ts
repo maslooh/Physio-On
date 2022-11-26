@@ -55,10 +55,9 @@ export class NewsService {
   }
 
   async uploadImage(image: File) {
-    let ImageFirebasePath = new Date().getSeconds() + image.name;
-    let metaData = { imageRef: ImageFirebasePath } as UploadMetadata;
+    let ImageFirebasePath = new Date().getTime() + image.name;
     await this.storage
-      .upload(ImageFirebasePath, image, metaData)
+      .upload(ImageFirebasePath, image)
       .catch((err) => console.log(err));
     return ImageFirebasePath;
   }
