@@ -142,3 +142,15 @@ strong {
   width: 15rem !important;
   top: 65px !important;
 }
+
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight {
+  color: var(--active-link-color);
+  background: #f1ffef;
+}
+
+.p-dropdown:not(.p-disabled).p-focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: 0 0 0 0.2rem #22c55e4d;
+  border-color: var(--success);
+}

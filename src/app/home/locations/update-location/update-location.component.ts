@@ -77,11 +77,15 @@ export class UpdateLocationComponent implements OnInit {
 
   updateLocation() {
     if (this.hasChange) {
+      let selectedLocationImage = this.selectedLocation.image;
       this.selectedLocation = {
         ...this.selectedLocation,
         ...this.addLocationForm.value,
+        image: this.addLocationForm.get('image')?.value
+          ? this.addLocationForm.get('image')?.value
+          : selectedLocationImage,
       } as ClinicLocation;
-     
+
       this.pageLoader.show(Loading.updateNews);
 
       if (this.image) {

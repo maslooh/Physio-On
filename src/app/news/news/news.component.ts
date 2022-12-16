@@ -22,7 +22,7 @@ export class NewsComponent implements OnInit {
   newsList: News[] = [];
   isLoggedIn: boolean = false;
   paginateStart: number = 0; //inclusive
-  paginateEnd: number = 6; //exclusive
+  paginateEnd: number = 3; //exclusive
   totalNewsCount: number;
   responsiveOptions:any[];
 

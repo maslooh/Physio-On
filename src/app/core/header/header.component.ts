@@ -33,7 +33,6 @@ export class HeaderComponent implements OnInit {
           ? this.currentRoute.split('#')[1]
           : this.currentRoute;
         this.routeAction = (_ as NavigationEnd).url.split('/')[2]
-        console.log(this.routeAction);
         
       });
   }
