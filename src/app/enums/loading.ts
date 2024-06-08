@@ -7,5 +7,6 @@ export enum Loading {
     signIn,
     signOut,
     getNewsItem,
-    locationsList
+    locationsList,
+    bookingUrl
 }
